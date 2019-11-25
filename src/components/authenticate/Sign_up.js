@@ -8,6 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import InputSimple from '../../materials/inputs/Simple_input'
 import InputPassword from '../../materials/inputs/Password_Input'
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import css from '../../css/Globale.css'
 
 
 
@@ -43,8 +45,16 @@ class Sign_up extends Component {
 
                     </CardContent>
                     <CardActions>
-
+                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
+                            Submit
+                        </Button>
                     </CardActions>
+                    <CardActions>
+                        <Button className={css.actioncards} variant="contained" color="primary" href="#contained-buttons">
+                            Switch to sign up
+                        </Button>
+                    </CardActions>
+
 
                 </Card>
             </Grid >

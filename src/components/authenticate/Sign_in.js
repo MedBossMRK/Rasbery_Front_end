@@ -19,7 +19,9 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Fab from '@material-ui/core/Fab';
 import NavigationIcon from '@material-ui/icons/Navigation';
-//import css from '../../css/Globale.css'
+import css from '../../css/Globale.css'
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
 
 
 function HomeIcon(props) {
@@ -33,7 +35,16 @@ function HomeIcon(props) {
 
 class Sign_in extends Component {
 
+
     render() {
+        const theme = createMuiTheme({
+            palette: {
+                primary: purple,
+                secondary: {
+                    main: '#f44336',
+                },
+            },
+        });
         return (
 
             <Grid
@@ -56,16 +67,20 @@ class Sign_in extends Component {
                         >
                             <InputSimple title="Username" description="username" ></InputSimple>
                             <InputPassword title="Password"></InputPassword>
-                            <h1 > Test css</h1>
 
                         </Grid>
 
                     </CardContent>
                     <CardActions >
-                        <Fab variant="extended" color="primary" aria-label="add"  >
-                            <NavigationIcon />
-                            Extended
-                        </Fab>
+                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
+                            Submit
+                        </Button>
+
+                    </CardActions>
+                    <CardActions >
+                        <Button className={css.actioncards} variant="contained" color="primary" href="#contained-buttons">
+                            Switch to Sign up
+                        </Button>
 
                     </CardActions>
                     <CardActions >
