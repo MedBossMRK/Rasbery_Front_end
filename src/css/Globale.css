@@ -1,3 +1,27 @@
 .actioncards {
     width: 100%;
 }
+
+body {
+    background-color: aqua;
+}
+
+.Authenticate {
+    padding-top: 4%;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.grid {
+    width: 200%;
+}
+
+.test {
+    background-color: rebeccapurple;
+}
+
+.test1 {
+    background-color: red;
+}

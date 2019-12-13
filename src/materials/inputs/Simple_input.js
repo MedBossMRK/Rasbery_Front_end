@@ -9,6 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import EmailIcon from '@material-ui/icons/Email';
+import PersonPinCircleIcon from '@material-ui/icons/PersonPinCircle';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +19,17 @@ const useStyles = makeStyles(theme => ({
     },
     input: {
         visibility: "hidden"
+    },
+    fullwidth: {
+        width: "100%"
+    },
+    color: {
+        backgroundColor: "red",
+        //width: "90%"
+    },
+    color1: {
+        backgroundColor: "yellow",
+        // width: "10%"
     }
 
 }));
@@ -27,16 +39,24 @@ export default function InputWithIcon(props) {
     let icon = <AccountCircle />;
     if (props.description == "email") {
         icon = <EmailIcon />;
+    } else if (props.description == "adress") {
+        icon = <PersonPinCircleIcon />;
     }
 
     return (
         <div className={classes.margin}>
-            <Grid container spacing={1} alignItems="flex-end">
-                <Grid item>
+            <Grid container spacing={1} alignItems="flex-end" >
+                <Grid xs={1}
+                    item
+                // className={classes.color1}
+                >
                     {icon}
                 </Grid>
-                <Grid item>
-                    <FormControl>
+                <Grid xs={11}
+                    item
+                //className={classes.color}
+                >
+                    <FormControl fullWidth={true} >
                         <InputLabel htmlFor="standard-adornment-password">{props.title}</InputLabel>
                         <Input
                             id="standard-adornment-password"
@@ -58,7 +78,7 @@ export default function InputWithIcon(props) {
 
                 </Grid>
             </Grid>
-        </div>
+        </div >
 
     );
 

@@ -4,5 +4,19 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
+import userReducer from './store/reduces/user';
+//import userInfoReducer from './store/reduces/userInfo';
+
+const rootReducer = combineReducers({
+    user: userReducer,
+    // userInfo: userInfoReducer,
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
