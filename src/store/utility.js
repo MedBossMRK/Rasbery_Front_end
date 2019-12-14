@@ -1,6 +1,9 @@
 export const updateObject = (oldObject, updatedValues) => {
-    return {
+    let newObject = {
         ...oldObject,
         ...updatedValues
     }
+    let initialObjectStateSerialize = JSON.stringify(newObject);
+    localStorage.setItem('UserState', initialObjectStateSerialize);
+    return newObject;
 };

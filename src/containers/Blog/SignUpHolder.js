@@ -19,7 +19,11 @@ class SignUpHolder extends Component {
         username: "",
         email: "",
         password: "",
-        cfpassword: ""
+        cfpassword: "",
+        state: 0,
+        isReady: false,
+        isActive: false,
+        token: "",
     };
 
 
@@ -43,7 +47,7 @@ class SignUpHolder extends Component {
         if (this.verification()) {
             console.log("----Submit valide-----");
             console.log(this.userInfo);
-            this.props.onSignUp(this.userInfo);
+            this.props.onSignUp(this.userInfo, this.props);
         } else {
             console.log("----Submit not valide----");
         }
@@ -86,9 +90,9 @@ const mapDispatchToProps = dispatch => {
             console.log('action activited');
             dispatch(actionCreators.signUpFetch(userInfo));
         },
-        onSignUp: (userInfo) => {
+        onSignUp: (userInfo, props) => {
             console.log('on Signup');
-            dispatch(actionCreators.signUpFetch(userInfo));
+            dispatch(actionCreators.signUpFetch(userInfo, props));
         }
     };
 };
