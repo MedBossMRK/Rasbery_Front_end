@@ -52,9 +52,11 @@ export default function InputAdornments(props) {
                     <LockIcon />
                 </Grid>
                 <Grid item>
-                    <FormControl>
+                    <FormControl onChange={props.Change}>
                         <InputLabel htmlFor="standard-adornment-password">{props.title}</InputLabel>
+
                         <Input
+                            name={props.name}
                             id="standard-adornment-password"
                             type={values.showPassword ? 'text' : 'password'}
                             value={values.password}

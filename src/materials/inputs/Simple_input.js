@@ -56,9 +56,10 @@ export default function InputWithIcon(props) {
                     item
                 //className={classes.color}
                 >
-                    <FormControl fullWidth={true} >
+                    <FormControl fullWidth={true} onChange={props.Change} >
                         <InputLabel htmlFor="standard-adornment-password">{props.title}</InputLabel>
                         <Input
+                            name={props.name}
                             id="standard-adornment-password"
                             type={'text'}
                             endAdornment={

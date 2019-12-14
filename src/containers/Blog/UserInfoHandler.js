@@ -13,12 +13,13 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 
 
-class Authenticate extends Component {
+class UserInfoHandler extends Component {
 
     render() {
         return (
             <div className={css.Authenticate}>
-                <Sign_in></Sign_in>
+                <User_Info></User_Info>
+                <Steppers step={2}></Steppers>
             </div>
 
         );
@@ -45,4 +46,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfoHandler);

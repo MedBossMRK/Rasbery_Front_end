@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 
 
-class Authenticate extends Component {
+class SignInHolder extends Component {
 
     render() {
         return (
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInHolder);

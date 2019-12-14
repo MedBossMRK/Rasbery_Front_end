@@ -8,9 +8,11 @@ export const signInFetch = () => {
 
 };
 
-export const signUpFetch = () => {
+export const signUpFetch = (userInfo) => {
     return (next) => {
         setTimeout(() => {
+            console.log("Sign Up Fetching ...")
+            console.log(userInfo);
             next(actionCreators.signUp());
         }, 1000);
     }

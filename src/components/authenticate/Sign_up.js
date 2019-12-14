@@ -15,6 +15,11 @@ import css from '../../css/Globale.css'
 
 class Sign_up extends Component {
 
+    /*FormChange = event => {
+        console.log(event.target.value);
+        this.props.testEvent("Bravo");
+    }*/
+
     render() {
         return (
 
@@ -36,16 +41,27 @@ class Sign_up extends Component {
                             alignItems="center"
                             spacing={0}
                         >
-                            <InputSimple title="Username" description="username" ></InputSimple>
-                            <InputSimple title="Email" description="email" ></InputSimple>
-                            <InputPassword title="Password"></InputPassword>
-                            <InputPassword title="Confirme your Password"></InputPassword>
+                            <InputSimple name="username" Change={this.props.testEvent}
+                                title="Username" description="username"
+                            ></InputSimple>
+                            <InputSimple name="email" title="Email"
+                                description="email" Change={this.props.testEvent}
+                            ></InputSimple>
+                            <InputPassword name="password" title="Password"
+                                Change={this.props.testEvent}
+                            ></InputPassword>
+                            <InputPassword name="cfpassword" title="Confirme your Password"
+                                Change={this.props.testEvent}
+                            ></InputPassword>
 
                         </Grid>
 
                     </CardContent>
                     <CardActions>
-                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
+                        <Button className={css.actioncards} variant="contained"
+                            color="secondary" href="#contained-buttons"
+                            onClick={this.props.submit}
+                        >
                             Submit
                         </Button>
                     </CardActions>
