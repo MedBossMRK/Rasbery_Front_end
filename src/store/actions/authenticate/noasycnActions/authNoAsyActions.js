@@ -44,3 +44,48 @@ export const signUpFetch = (userInfo, props) => {
     }
 
 };
+
+
+
+
+export const ValidateEmail = (token, props) => {
+    return (next) => {
+
+        axios.get('http://localhost:4000/ValidationEmail/' + token,
+
+        )
+            .then((response) => {
+                console.log(response.data);
+                next(actionCreators.ValidateEmailtoReducer());
+                props.history.push('/UserInfo')
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error sign up");
+            });
+
+    }
+
+}
+
+
+export const SendEmail = (state) => {
+    return (next) => {
+        console.log("token is :" + state.token)
+        let config = {
+            headers: {
+                authorization: "Bearer: " + state.token,
+                Username: state.username
+            }
+        }
+        axios.get('http://localhost:4000/SendEmail', config)
+            .then((response) => {
+                console.log(response.data);
+                console.log("email has benn sended")
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on sending email");
+            });
+    }
+}

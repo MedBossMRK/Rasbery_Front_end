@@ -27,8 +27,9 @@ const reducer = (state = initialUserState, action) => {
         case actionTypes.signIn:
             return updateObject(state, action.user);
         case actionTypes.signUp:
-
             return updateObject(state, action.user);
+        case actionTypes.validateEmail:
+            return updateObject(state, { state: 2 });
     }
     return state;
 };

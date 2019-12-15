@@ -10,6 +10,7 @@ import SingInHolder from './Blog/SingInHolder';
 import SignUpHolder from './Blog/SignUpHolder';
 import EmailValidationHolder from './Blog/EmailValidationHolder';
 import UserInfoHandler from './Blog/UserInfoHandler';
+import ValidateEmail from './Blog/ValidateEmail';
 
 
 import { connect } from 'react-redux';
@@ -29,6 +30,7 @@ class Blog extends Component {
                     <Route path="/SignIn" exact component={SingInHolder} />
                     <Route path="/SignUp" exact component={SignUpHolder} />
                     <Route path="/EmailValidation" exact component={EmailValidationHolder} />
+                    <Route path="/ValidateEmail/:token" exact component={ValidateEmail} />
                     <Route path="/UserInfo" exact component={UserInfoHandler} />
                     {this.props.user.isActive ? <Route path="/Home" exact component={Home} /> :
                         <Route render={() => <h1>you are not connected</h1>}></Route>}

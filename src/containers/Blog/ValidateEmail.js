@@ -13,19 +13,27 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 
 
-class EmailValidationHolder extends Component {
+class ValidateEmail extends Component {
 
     render() {
         return (
             <div className={css.Authenticate}>
-                <Email_Validation type={'before'}
-                    sendEmail={() => this.props.onSendEmail(this.props.user)}>
-                </Email_Validation>
+                <Email_Validation type={'after'}></Email_Validation>
                 <Steppers step={1}></Steppers>
             </div>
 
         );
     }
+
+    componentDidMount() {
+        console.log('init after rendering');
+        console.log("token from the parametre");
+        console.log(this.props.match.params.token);
+        this.props.onValidateEmail(this.props.match.params.token, this.props);
+    }
+
+
+
 }
 
 
@@ -43,13 +51,13 @@ const mapDispatchToProps = dispatch => {
             console.log('action activited');
             dispatch(actionCreators.signInFetch());
         },
-        onSendEmail: (state) => {
-            console.log('send Email');
-            dispatch(actionCreators.SendEmail(state));
+        onValidateEmail: (token, props) => {
+            console.log('validate Email');
+            dispatch(actionCreators.ValidateEmail(token, props))
         }
     };
 };
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmailValidationHolder);
+export default connect(mapStateToProps, mapDispatchToProps)(ValidateEmail);

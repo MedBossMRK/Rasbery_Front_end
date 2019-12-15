@@ -25,10 +25,11 @@ import purple from '@material-ui/core/colors/purple';
 import color from '@material-ui/core/colors/amber';
 import ValidationAccepteUi from '../../materials/Loading/Validation_Accepte'
 import LinearProgress from '@material-ui/core/LinearProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
-class ForgetPassword extends Component {
+class EmailValidation extends Component {
 
 
     render() {
@@ -53,6 +54,7 @@ class ForgetPassword extends Component {
                         title="validate your email"
                     />
                     <CardContent>
+                        {/*
                         <Grid
                             container
                             direction="column"
@@ -63,12 +65,23 @@ class ForgetPassword extends Component {
                             <InputSimple title="Your email here" description="email" ></InputSimple>
 
                         </Grid>
-
+                        */}
                     </CardContent>
                     <CardActions  >
-                        <div className={css.center}>
-                            <ValidationAccepteUi />
-                        </div>
+                        {(this.props.type == "before" ?
+                            <div className={css.center} onClick={() => {
+                                setTimeout(() => {
+                                    this.props.sendEmail();
+                                }, 1000);
+                            }} >
+                                <ValidationAccepteUi />
+                            </div> :
+                            <div className={css.center}>
+                                <CircularProgress color="secondary" />
+                            </div>
+
+                        )}
+
                     </CardActions>
                 </Card>
             </Grid >
@@ -78,4 +91,4 @@ class ForgetPassword extends Component {
     }
 }
 
-export default ForgetPassword;
+export default EmailValidation;
