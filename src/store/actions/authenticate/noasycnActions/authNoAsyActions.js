@@ -27,7 +27,8 @@ export const signUpFetch = (userInfo, props) => {
             .then((response) => {
                 console.log(response.data.Token);
                 next(actionCreators.signUp({
-                    ...userInfo,
+                    username: userInfo.username,
+                    email: userInfo.email,
                     state: 1,
                     isReady: false,
                     isActive: true,
@@ -47,7 +48,6 @@ export const signUpFetch = (userInfo, props) => {
 
 
 
-
 export const ValidateEmail = (token, props) => {
     return (next) => {
 
@@ -57,7 +57,7 @@ export const ValidateEmail = (token, props) => {
             .then((response) => {
                 console.log(response.data);
                 next(actionCreators.ValidateEmailtoReducer());
-                props.history.push('/UserInfo')
+                props.history.push('/UserInfo');
             })
             .catch((error) => {
                 console.log(error);
@@ -66,7 +66,7 @@ export const ValidateEmail = (token, props) => {
 
     }
 
-}
+};
 
 
 export const SendEmail = (state) => {
@@ -88,4 +88,29 @@ export const SendEmail = (state) => {
                 console.log("error on sending email");
             });
     }
-}
+};
+
+export const userInfoRegistering = (fd, props) => {
+    return (next) => {
+        console.log("#######");
+        console.log(props.user.token);
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+        axios.post('http://localhost:4000/UserInfo/UserInfoHandler', fd, config)
+            .then((response) => {
+                console.log(response.data);
+                console.log("userInfos have benn sended");
+                next(actionCreators.userInfo());
+                props.history.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on sending user Info");
+            });
+
+    }
+};

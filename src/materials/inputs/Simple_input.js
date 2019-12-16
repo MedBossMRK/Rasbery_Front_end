@@ -45,7 +45,7 @@ export default function InputWithIcon(props) {
 
     return (
         <div className={classes.margin}>
-            <Grid container spacing={1} alignItems="flex-end" >
+            <Grid container spacing={1} alignItems="flex-start" >
                 <Grid xs={1}
                     item
                 // className={classes.color1}

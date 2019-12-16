@@ -30,6 +30,8 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, action.user);
         case actionTypes.validateEmail:
             return updateObject(state, { state: 2 });
+        case actionTypes.userInfo:
+            return updateObject(state, { state: 3, isReady: true })
     }
     return state;
 };

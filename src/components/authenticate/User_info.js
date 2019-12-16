@@ -11,10 +11,12 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import css from '../../css/Globale.css'
 import TextField from '@material-ui/core/TextField';
+import MultilineTextFields from '../../materials/TextArea/TextAria';
 
 
 
 class User_info extends Component {
+
 
     render() {
         return (
@@ -39,10 +41,20 @@ class User_info extends Component {
 
                         >
                             <Grid item xl={6} md={6} sm={12} xs={12}>
-                                <InputSimple title="First name" description="username" ></InputSimple>
+                                <InputSimple
+                                    title="First name"
+                                    description="username"
+                                    Change={this.props.inputchange}
+                                    name="firstname"
+                                ></InputSimple>
                             </Grid>
                             <Grid item xl={6} md={6} sm={12} xs={12}>
-                                <InputSimple title="Last name" description="username" ></InputSimple>
+                                <InputSimple
+                                    title="Last name"
+                                    description="username"
+                                    Change={this.props.inputchange}
+                                    name="lastname"
+                                ></InputSimple>
 
                             </Grid>
 
@@ -57,17 +69,58 @@ class User_info extends Component {
 
                         >
                             <Grid item xs={12}  >
-                                <InputSimple title="First name" description="adress" ></InputSimple>
+                                <MultilineTextFields
+                                    title="Address"
+                                    description="adress"
+                                    Change={this.props.inputchange}
+                                    name="address"
+                                ></MultilineTextFields>
                             </Grid>
 
+                        </Grid>
+                        <div className={css.upload}>
+                        </div>
+                        <Grid
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                            spacing={0}
 
+                        >
+                            <Grid item xs={12}  >
+                                <input
+                                    ref="upload"
+                                    type="file"
+                                    style={{ display: "none" }}
+                                    onChange={this.props.fileChange}
+                                />
+                                <Button className={css.actioncards} variant="contained"
+                                    color="primary" href="#contained-buttons"
+                                    onClick={() => {
+                                        // console.log(this.refs.upload);
+                                        this.refs.upload.click();
+
+                                    }}
+                                >
+
+                                    {this.props.fileName}
+
+                                </Button>
+
+
+                            </Grid>
 
                         </Grid>
 
 
                     </CardContent>
                     <CardActions>
-                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
+                        <Button
+                            className={css.actioncards} variant="contained"
+                            color="secondary" href="#contained-buttons"
+                            onClick={this.props.submit}
+                        >
                             Submit
                         </Button>
                     </CardActions>

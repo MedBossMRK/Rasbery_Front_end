@@ -47,7 +47,7 @@ export default function InputAdornments(props) {
 
     return (
         <div className={classes.margin}>
-            <Grid container spacing={1} alignItems="flex-end">
+            <Grid container spacing={1} alignItems="flex-start">
                 <Grid item>
                     <LockIcon />
                 </Grid>

@@ -32,3 +32,9 @@ export const ValidateEmailtoReducer = () => {
     }
 }
 
+export const userInfo = () => {
+    return {
+        type: actionTypes.userInfo
+    }
+}
+

@@ -2,6 +2,7 @@ export {
     signIn,
     signUp,
     ValidateEmailtoReducer,
+    userInfo,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -9,4 +10,5 @@ export {
     signUpFetch,
     ValidateEmail,
     SendEmail,
+    userInfoRegistering,
 } from './authenticate/noasycnActions/authNoAsyActions'
