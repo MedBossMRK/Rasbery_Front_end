@@ -33,7 +33,7 @@ function HomeIcon(props) {
 }
 
 
-class Sign_in extends Component {
+class Rasbery_Connect extends Component {
 
 
     render() {
@@ -55,7 +55,7 @@ class Sign_in extends Component {
             >
                 <Card className="Card" >
                     <CardHeader
-                        title="Sign in"
+                        title="Rasbery Connect"
                     />
                     <CardContent>
                         <Grid
@@ -65,44 +65,18 @@ class Sign_in extends Component {
                             alignItems="center"
                             spacing={0}
                         >
-                            <InputSimple
-                                title="Username"
-                                description="username"
-                                name="username"
-                                Change={this.props.inputChange}
-                            ></InputSimple>
-                            <InputPassword
-                                title="Password"
-                                name="password"
-                                Change={this.props.inputChange}
-                            ></InputPassword>
+                            <InputSimple title="RasberyId" description="username" ></InputSimple>
+                            <InputSimple title="RasberyPassword" description="username" ></InputSimple>
 
                         </Grid>
 
                     </CardContent>
                     <CardActions >
-                        <Button className={css.actioncards}
-                            variant="contained"
-                            color="secondary"
-                            href="#contained-buttons"
-                            onClick={this.props.submit}
-                        >
+                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
                             Submit
                         </Button>
 
                     </CardActions>
-                    <CardActions >
-                        <Button className={css.actioncards} variant="contained" color="primary" href="#contained-buttons">
-                            Switch to Sign up
-                        </Button>
-
-                    </CardActions>
-                    <CardActions >
-                        <Link href="#" >
-                            Forget password
-                         </Link>
-                    </CardActions>
-
 
                 </Card>
             </Grid >
@@ -112,4 +86,4 @@ class Sign_in extends Component {
     }
 }
 
-export default Sign_in;
+export default Rasbery_Connect;

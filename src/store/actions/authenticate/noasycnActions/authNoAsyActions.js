@@ -1,27 +1,41 @@
 import * as actionCreators from '../../index';
+import { Url } from '../../../../properties/properties';
 const axios = require('axios');
 
-export const signInFetch = () => {
+export const signInFetch = ((userLogin, props) => {
     return (next) => {
-        axios.post('/user', {
-            firstName: 'Fred',
-            lastName: 'Flintstone'
-        })
+        console.log("bravooooooooooo");
+        axios.post(Url + '/SignIn',
+            userLogin
+        )
             .then((response) => {
-                next(actionCreators.signIn());
+                console.log(response.data);
+                next(actionCreators.signIn({
+                    username: response.data.username,
+                    email: response.data.email,
+                    state: response.data.state,
+                    isReady: response.data.isReady,
+                    isActive: true,
+                    authority: response.data.authority,
+                    token: response.data.token,
+
+                }));
+                props.history.push('/')
             })
             .catch((error) => {
                 console.log(error);
+                console.log("error in sign in");
             });
 
     }
 
-};
+
+});
 
 
 export const signUpFetch = (userInfo, props) => {
     return (next) => {
-        axios.post('http://localhost:4000/SignUp',
+        axios.post(Url + '/SignUp',
             userInfo
         )
             .then((response) => {
@@ -51,7 +65,7 @@ export const signUpFetch = (userInfo, props) => {
 export const ValidateEmail = (token, props) => {
     return (next) => {
 
-        axios.get('http://localhost:4000/ValidationEmail/' + token,
+        axios.get(Url + '/ValidationEmail/' + token,
 
         )
             .then((response) => {
@@ -78,7 +92,7 @@ export const SendEmail = (state) => {
                 Username: state.username
             }
         }
-        axios.get('http://localhost:4000/SendEmail', config)
+        axios.get(Url + '/SendEmail', config)
             .then((response) => {
                 console.log(response.data);
                 console.log("email has benn sended")
@@ -100,7 +114,7 @@ export const userInfoRegistering = (fd, props) => {
                 Username: props.user.username
             }
         }
-        axios.post('http://localhost:4000/UserInfo/UserInfoHandler', fd, config)
+        axios.post(Url + '/UserInfo/UserInfoHandler', fd, config)
             .then((response) => {
                 console.log(response.data);
                 console.log("userInfos have benn sended");

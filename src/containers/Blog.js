@@ -11,10 +11,12 @@ import SignUpHolder from './Blog/SignUpHolder';
 import EmailValidationHolder from './Blog/EmailValidationHolder';
 import UserInfoHandler from './Blog/UserInfoHandler';
 import ValidateEmail from './Blog/ValidateEmail';
+import RasberyConnect from './Blog/RasberyConnect';
 
 
 import { connect } from 'react-redux';
 import * as actionCreators from '../store/actions/index';
+import AllUsers from './Blog/AllUsers';
 
 
 
@@ -32,6 +34,8 @@ class Blog extends Component {
                     <Route path="/EmailValidation" exact component={EmailValidationHolder} />
                     <Route path="/ValidateEmail/:token" exact component={ValidateEmail} />
                     <Route path="/UserInfo" exact component={UserInfoHandler} />
+                    <Route path="/RasberyConnect" exact component={RasberyConnect} />
+                    <Route path="/AllUsers" exact component={AllUsers} />
                     {this.props.user.isActive ? <Route path="/Home" exact component={Home} /> :
                         <Route render={() => <h1>you are not connected</h1>}></Route>}
                     <Route path="/" exact component={Home} />

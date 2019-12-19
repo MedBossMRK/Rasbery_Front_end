@@ -32,3 +32,8 @@ body {
     background-color: rgba(255, 255, 0, 0.719);
     margin-top: 5%;
 }
+
+.panel {
+    margin-left: 10%;
+    margin-right: 10%;
+}

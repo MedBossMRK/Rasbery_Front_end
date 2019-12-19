@@ -14,15 +14,51 @@ import * as actionCreators from '../../store/actions/index';
 
 
 class SignInHolder extends Component {
+    userLogin = {
+        username: "",
+        password: "",
+    };
+
+
+    inputChange = (event) => {
+        if (event.target.name == "username") {
+            this.userLogin.username = event.target.value;
+        } else if (event.target.name == "password") {
+            this.userLogin.password = event.target.value;
+        }
+        // console.log(this.userLogin);
+    };
+
+
+    Submite = () => {
+        console.log("submit the form");
+        if (this.verification()) {
+            console.log("----Submit valide-----");
+            console.log(this.userLogin);
+            this.props.onSignIn(this.userLogin, this.props);
+        } else {
+            console.log("----Submit not valide----");
+        }
+
+    }
+
+    verification = () => {
+        if (this.userLogin.username != "" && this.userLogin.password != "") {
+            return true;
+        }
+        return false;
+    }
 
     render() {
         return (
             <div className={css.Authenticate}>
-                <Sign_in></Sign_in>
+                <Sign_in inputChange={this.inputChange} submit={this.Submite}></Sign_in>
             </div>
 
         );
     }
+
+
 }
 
 
@@ -36,10 +72,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onAction: () => {
-            console.log('action activited');
-            dispatch(actionCreators.signInFetch());
-        },
+
+        onSignIn: (userLogin, props) => {
+            console.log('sign in');
+            dispatch(actionCreators.signInFetch(userLogin, props));
+        }
     };
 };
 
