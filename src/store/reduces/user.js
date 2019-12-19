@@ -31,7 +31,9 @@ const reducer = (state = initialUserState, action) => {
         case actionTypes.validateEmail:
             return updateObject(state, { state: 2 });
         case actionTypes.userInfo:
-            return updateObject(state, { state: 3, isReady: true })
+            return updateObject(state, { state: 3, isReady: true });
+        case actionTypes.rasberySignUp:
+            return updateObject(state, { authority: 'admin' });
     }
     return state;
 };

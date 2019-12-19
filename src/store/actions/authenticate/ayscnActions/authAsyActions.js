@@ -1,9 +1,9 @@
 import * as actionTypes from '../authActionsTypes';
 
-export const signIn = (userInfo) => {
+export const signIn = (userLogin) => {
     return {
         type: actionTypes.signIn,
-        user: userInfo,
+        user: userLogin,
     };
 }
 export const signUp = (userInfo) => {
@@ -35,6 +35,12 @@ export const ValidateEmailtoReducer = () => {
 export const userInfo = () => {
     return {
         type: actionTypes.userInfo
+    }
+}
+
+export const rasberySignUp = () => {
+    return {
+        type: actionTypes.rasberySignUp
     }
 }
 

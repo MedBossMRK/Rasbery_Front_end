@@ -3,6 +3,7 @@ export {
     signUp,
     ValidateEmailtoReducer,
     userInfo,
+    rasberySignUp,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -11,4 +12,5 @@ export {
     ValidateEmail,
     SendEmail,
     userInfoRegistering,
+    rasberySignUpFetch,
 } from './authenticate/noasycnActions/authNoAsyActions'

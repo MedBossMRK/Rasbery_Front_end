@@ -14,12 +14,46 @@ import * as actionCreators from '../../store/actions/index';
 
 
 class RasberyConnect extends Component {
+    rasberyInfo = {
+        rasberyId: "",
+        rasberyKey: "",
+    };
+
+    inputChange = (event) => {
+        if (event.target.name == "RasberyId") {
+            this.rasberyInfo.rasberyId = event.target.value;
+        } else if (event.target.name == "RasberyPassword") {
+            this.rasberyInfo.rasberyKey = event.target.value;
+        }
+        // console.log(this.rasberyInfo);
+    };
+
+    Submite = () => {
+        console.log("submit the form");
+        if (this.verification()) {
+            console.log("----Submit valide-----");
+            console.log(this.rasberyInfo);
+            this.props.onRasberySignUp(this.rasberyInfo, this.props);
+        } else {
+            console.log("----Submit not valide----");
+        }
+
+    }
+
+    verification = () => {
+        if (this.rasberyInfo.RasberyId != "" && this.rasberyInfo.RasberyPassword != "") {
+            return true;
+        }
+        return false;
+    }
+
 
     render() {
         return (
             <div className={css.Authenticate}>
-
-                <Rasbery_Connect></Rasbery_Connect>
+                <Rasbery_Connect
+                    inputChange={this.inputChange}
+                    submit={this.Submite}></Rasbery_Connect>
             </div>
 
         );
@@ -37,9 +71,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onAction: () => {
-            console.log('action activited');
-            dispatch(actionCreators.signInFetch());
+        onRasberySignUp: (rasberyInfo, props) => {
+            console.log('Rasbery SignUp...');
+            dispatch(actionCreators.rasberySignUpFetch(rasberyInfo, props));
         },
     };
 };

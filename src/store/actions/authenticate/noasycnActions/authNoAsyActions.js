@@ -128,3 +128,28 @@ export const userInfoRegistering = (fd, props) => {
 
     }
 };
+
+
+export const rasberySignUpFetch = (rasberyInfo, props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+        axios.post(Url + '/Rasbery/SignUp', rasberyInfo, config)
+            .then((response) => {
+                console.log(response.data);
+                next(actionCreators.rasberySignUp());
+                props.history.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on sending user Info");
+            });
+
+    }
+};
+
+

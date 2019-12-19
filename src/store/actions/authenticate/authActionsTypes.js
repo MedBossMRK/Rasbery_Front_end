@@ -4,3 +4,4 @@ export const signUp = "signUp";
 export const SendEmail = "SendEmail";
 export const validateEmail = "ValidateEmail";
 export const userInfo = "userInfo";
+export const rasberySignUp = "rasberySignUp";

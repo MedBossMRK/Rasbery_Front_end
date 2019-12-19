@@ -65,14 +65,26 @@ class Rasbery_Connect extends Component {
                             alignItems="center"
                             spacing={0}
                         >
-                            <InputSimple title="RasberyId" description="username" ></InputSimple>
-                            <InputSimple title="RasberyPassword" description="username" ></InputSimple>
+                            <InputSimple
+                                title="RasberyId"
+                                description="username"
+                                name="RasberyId"
+                                Change={this.props.inputChange} ></InputSimple>
+                            <InputSimple
+                                title="RasberyPassword"
+                                description="username"
+                                name="RasberyPassword"
+                                Change={this.props.inputChange}></InputSimple>
 
                         </Grid>
 
                     </CardContent>
                     <CardActions >
-                        <Button className={css.actioncards} variant="contained" color="secondary" href="#contained-buttons">
+                        <Button className={css.actioncards}
+                            variant="contained"
+                            color="secondary"
+                            href="#contained-buttons"
+                            onClick={this.props.submit}>
                             Submit
                         </Button>
 
