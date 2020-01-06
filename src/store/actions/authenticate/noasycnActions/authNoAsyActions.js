@@ -207,3 +207,23 @@ export const sendInvitationRasberyOperation = (targetInfo, props) => {
 };
 
 
+export const ValidateInvitationOperation = (token, props) => {
+    return (next) => {
+
+        axios.get(Url + '/InvitationValidation/' + token,
+
+        )
+            .then((response) => {
+                console.log(response.data);
+                next(actionCreators.ValidateInvitation());
+                props.history.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on validation invitation");
+            });
+
+    }
+
+};
+

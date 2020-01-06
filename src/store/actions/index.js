@@ -6,6 +6,7 @@ export {
     rasberySignUp,
     LogOut,
     sendInvitationRasbery,
+    ValidateInvitation
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -17,4 +18,5 @@ export {
     rasberySignUpFetch,
     onLogOutOperation,
     sendInvitationRasberyOperation,
+    ValidateInvitationOperation
 } from './authenticate/noasycnActions/authNoAsyActions'

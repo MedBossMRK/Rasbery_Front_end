@@ -56,3 +56,9 @@ export const sendInvitationRasbery = () => {
     }
 }
 
+export const ValidateInvitation = () => {
+    return {
+        type: actionTypes.ValidateInvitation
+    }
+}
+

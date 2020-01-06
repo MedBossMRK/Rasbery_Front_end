@@ -48,7 +48,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onValidateInvitation: (token, props) => {
             console.log('validate Inviation');
-            // dispatch(actionCreators.ValidateEmail(token, props))
+            dispatch(actionCreators.ValidateInvitationOperation(token, props))
         }
     };
 };

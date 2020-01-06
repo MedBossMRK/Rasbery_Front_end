@@ -46,6 +46,8 @@ const reducer = (state = initialUserState, action) => {
             });
         case actionTypes.sendInvitationRasbery:
             return updateObject(state, {});
+        case actionTypes.ValidateInvitation:
+            return updateObject(state, { authority: 'member' });
 
     }
     return state;
