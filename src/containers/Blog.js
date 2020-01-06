@@ -19,6 +19,7 @@ import * as actionCreators from '../store/actions/index';
 import AllUsers from './Blog/AllUsers';
 import SendInvitationHandler from './Blog/SendInvitationHandler';
 import { createBrowserHistory as createHistory } from "history";
+import validateInvitation from './Blog/validateInvitation';
 
 
 
@@ -40,6 +41,7 @@ class Blog extends Component {
                     <Route path="/RasberyConnect" exact component={RasberyConnect} />
                     <Route path="/AllUsers" exact component={AllUsers} />
                     <Route path="/SendInviation" exact component={SendInvitationHandler} />
+                    <Route path="/ValidateInvitation/:token" exact component={validateInvitation} />
                     {this.props.user.isActive ? <Route path="/Home" exact component={Home} /> :
                         <Route render={() => <h1>you are not connected</h1>}></Route>}
                     <Route path="/" exact component={Home} />
