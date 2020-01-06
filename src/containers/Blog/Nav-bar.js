@@ -9,14 +9,17 @@ class Nav_bar extends Component {
     }
 
     ToggleDrawer = () => {
-        console.log("toggle drawer");
+        //   console.log("toggle drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = !toggle.toggleDrawer;
         this.setState(toggle);
         //console.log(toggle.toggleDrawer);
     }
-    ItemSelected = () => {
+    ItemSelected = (e, name) => {
         console.log("Item Selected");
+        e.stopPropagation();
+        console.log(name);
+
         let toggle = { ... this.state }
         toggle.toggleDrawer = !toggle.toggleDrawer;
         this.setState(toggle);
@@ -24,19 +27,19 @@ class Nav_bar extends Component {
 
 
     OpenDrawer = () => {
-        console.log("toggle drawer");
+        //  console.log("toggle drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = true;
         this.setState(toggle);
     }
     CloseDrawer = () => {
-        console.log("toggle drawer");
+        //    console.log("toggle drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = false;
         this.setState(toggle);
     }
     DrawerClicked = () => {
-        console.log("drawer clicked");
+        //  console.log("drawer clicked");
         let toggle = { ... this.state }
         toggle.toggleDrawer = false;
         this.setState(toggle);

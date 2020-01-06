@@ -9,6 +9,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
+import GroupIcon from '@material-ui/icons/Group';
 
 const useStyles = makeStyles({
     list: {
@@ -40,23 +43,25 @@ export default function TemporaryDrawer(props) {
         <div
             className={classes.list}
             role="presentation"
-            onClick={props.ItemSelected}
+            // onClick={props.ItemSelected}
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                {['Connect', 'Users'].map((text, index) => (
+                    <ListItem button key={text} >
+                        <ListItemIcon >{index % 2 === 0 ? <SettingsInputAntennaIcon /> : <GroupIcon />}</ListItemIcon>
+                        <ListItemText onClick={(event) => props.ItemSelected(event, text)}
+                            primary={text} />
                     </ListItem>
                 ))}
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                {['Log Out'].map((text, index) => (
                     <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
+                        <ListItemText onClick={(event) => props.ItemSelected(event, text)}
+                            primary={text} />
                     </ListItem>
                 ))}
             </List>
