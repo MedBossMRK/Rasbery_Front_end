@@ -17,6 +17,7 @@ import RasberyConnect from './Blog/RasberyConnect';
 import { connect } from 'react-redux';
 import * as actionCreators from '../store/actions/index';
 import AllUsers from './Blog/AllUsers';
+import SendInvitationHandler from './Blog/SendInvitationHandler';
 
 
 
@@ -36,6 +37,7 @@ class Blog extends Component {
                     <Route path="/UserInfo" exact component={UserInfoHandler} />
                     <Route path="/RasberyConnect" exact component={RasberyConnect} />
                     <Route path="/AllUsers" exact component={AllUsers} />
+                    <Route path="/SendInviation" exact component={SendInvitationHandler} />
                     {this.props.user.isActive ? <Route path="/Home" exact component={Home} /> :
                         <Route render={() => <h1>you are not connected</h1>}></Route>}
                     <Route path="/" exact component={Home} />
