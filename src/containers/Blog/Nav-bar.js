@@ -6,7 +6,9 @@ import * as actionCreators from '../../store/actions/index';
 
 
 
+
 class Nav_bar extends Component {
+
 
     state = {
         toggleDrawer: false
@@ -24,9 +26,11 @@ class Nav_bar extends Component {
         e.stopPropagation();
         console.log(name);
         if (name == "Connect") {
-            console.log("Connect")
-        } else if (name == "users") {
-            console.log("users")
+            console.log("Connect");
+            this.props.history.push('/RasberyConnect');
+        } else if (name == "Users") {
+            console.log("users");
+            this.props.history.push('/AllUsers');
         } else if (name == "Log Out") {
             console.log("Log out");
             this.props.onLogOut(this.props);
@@ -62,6 +66,7 @@ class Nav_bar extends Component {
             color: 'black',
             heigh: '400px',
         };
+        const { history } = this.props
         return (
             <div>
                 <Nav_bar_component Toggle={this.ToggleDrawer} ></Nav_bar_component>
@@ -74,11 +79,6 @@ class Nav_bar extends Component {
                 >
 
                 </Drawer_component>
-                <h1 onClick={() => {
-                    console.log(this.props.history);
-                    // this.history.push("/");
-
-                }}>fhdsjk</h1>
             </div>
 
         );

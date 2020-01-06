@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect, Router } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Authenticate from './Blog/Authenticate';
 import Home from './Blog/Home';
@@ -18,16 +18,18 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../store/actions/index';
 import AllUsers from './Blog/AllUsers';
 import SendInvitationHandler from './Blog/SendInvitationHandler';
+import { createBrowserHistory as createHistory } from "history";
 
 
 
 class Blog extends Component {
+    history = createHistory(this.props);
 
     render() {
         return (
             <div>
                 <header>
-                    <Nav_bar></Nav_bar>
+                    <Route component={Nav_bar} />
                 </header>
                 <Switch>
                     <Route path="/SignIn" exact component={SingInHolder} />
@@ -44,6 +46,7 @@ class Blog extends Component {
                     <Route component={Error404} />
 
                 </Switch>
+
 
             </div>
 

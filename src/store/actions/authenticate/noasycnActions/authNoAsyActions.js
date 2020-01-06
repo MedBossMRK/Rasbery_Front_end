@@ -20,7 +20,7 @@ export const signInFetch = ((userLogin, props) => {
                     token: response.data.token,
 
                 }));
-                props.history.push('/')
+                props.history.push('/');
             })
             .catch((error) => {
                 console.log(error);
