@@ -43,7 +43,10 @@ const reducer = (state = initialUserState, action) => {
                 isActive: false,
                 authority: "",
                 token: "",
-            })
+            });
+        case actionTypes.sendInvitationRasbery:
+            return updateObject(state, {});
+
     }
     return state;
 };

@@ -68,7 +68,7 @@ class SendInviation extends Component {
                             <InputSimple
                                 title="targetname"
                                 description="username"
-                                name="RasberyId"
+                                name="SendInvitation"
                                 Change={this.props.inputChange} ></InputSimple>
 
                         </Grid>

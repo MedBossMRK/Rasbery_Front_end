@@ -5,6 +5,7 @@ export {
     userInfo,
     rasberySignUp,
     LogOut,
+    sendInvitationRasbery,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -15,4 +16,5 @@ export {
     userInfoRegistering,
     rasberySignUpFetch,
     onLogOutOperation,
+    sendInvitationRasberyOperation,
 } from './authenticate/noasycnActions/authNoAsyActions'

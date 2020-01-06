@@ -181,3 +181,29 @@ export const rasberySignUpFetch = (rasberyInfo, props) => {
 };
 
 
+
+
+
+export const sendInvitationRasberyOperation = (targetInfo, props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+        axios.post(Url + '/Rasbery/SendInvitation', targetInfo, config)
+            .then((response) => {
+                console.log(response.data);
+                next(actionCreators.sendInvitationRasbery());
+                props.history.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on sending invitation");
+            });
+
+    }
+};
+
+

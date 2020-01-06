@@ -15,16 +15,45 @@ import SendInviation from '../../components/Rasbery/SendInvitation';
 
 
 class SendInvitationHnadler extends Component {
+    targetInfo = {
+        targetname: "",
+    };
 
 
+    inputChange = (event) => {
+        if (event.target.name == "SendInvitation") {
+            this.targetInfo.targetname = event.target.value;
+        }
+        // console.log(this.targetInfo);
+    };
 
+    Submite = () => {
+        console.log("submit the form");
+        if (this.verification()) {
+            console.log("----Submit valide-----");
+            console.log(this.targetInfo);
+            this.props.onSendInvitation(this.targetInfo, this.props);
+        } else {
+            console.log("----Submit not valide----");
+        }
+
+    }
+
+
+    verification = () => {
+        if (this.targetInfo.targetname != "") {
+            return true;
+        }
+        return false;
+    }
 
 
     render() {
         return (
             <div className={css.Authenticate}>
                 <SendInviation
-
+                    inputChange={this.inputChange}
+                    submit={this.Submite}
                 ></SendInviation>
             </div>
 
@@ -43,6 +72,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
+        onSendInvitation: (targetinfo, props) => {
+            console.log('send invitation rasbery');
+            dispatch(actionCreators.sendInvitationRasberyOperation(targetinfo, props));
+        }
 
     };
 };

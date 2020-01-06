@@ -50,3 +50,9 @@ export const rasberySignUp = () => {
     }
 }
 
+export const sendInvitationRasbery = () => {
+    return {
+        type: actionTypes.sendInvitationRasbery
+    }
+}
+
