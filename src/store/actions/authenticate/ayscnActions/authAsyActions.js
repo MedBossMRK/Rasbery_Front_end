@@ -26,6 +26,12 @@ export const SendEmail = () => {
     };
 }
 
+export const LogOut = () => {
+    return {
+        type: actionTypes.LogOut
+    }
+}
+
 export const ValidateEmailtoReducer = () => {
     return {
         type: actionTypes.validateEmail

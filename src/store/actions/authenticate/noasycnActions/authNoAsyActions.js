@@ -104,6 +104,34 @@ export const SendEmail = (state) => {
     }
 };
 
+
+
+
+export const onLogOutOperation = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+        axios.post(Url + '/LogOut', { type: "Logout" }, config)
+            .then((response) => {
+                console.log(response.data);
+                next(actionCreators.LogOut());
+                props.history.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on log out");
+            });
+
+    }
+}
+
+
+
+
 export const userInfoRegistering = (fd, props) => {
     return (next) => {
         console.log("#######");

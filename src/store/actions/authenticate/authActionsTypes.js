@@ -5,3 +5,4 @@ export const SendEmail = "SendEmail";
 export const validateEmail = "ValidateEmail";
 export const userInfo = "userInfo";
 export const rasberySignUp = "rasberySignUp";
+export const LogOut = "LogOut";

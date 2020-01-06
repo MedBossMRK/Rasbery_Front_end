@@ -13,6 +13,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
 import GroupIcon from '@material-ui/icons/Group';
 
+
 const useStyles = makeStyles({
     list: {
         width: 250,
@@ -50,7 +51,9 @@ export default function TemporaryDrawer(props) {
                 {['Connect', 'Users'].map((text, index) => (
                     <ListItem button key={text} >
                         <ListItemIcon >{index % 2 === 0 ? <SettingsInputAntennaIcon /> : <GroupIcon />}</ListItemIcon>
-                        <ListItemText onClick={(event) => props.ItemSelected(event, text)}
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, text);
+                        }}
                             primary={text} />
                     </ListItem>
                 ))}

@@ -34,6 +34,16 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, { state: 3, isReady: true });
         case actionTypes.rasberySignUp:
             return updateObject(state, { authority: 'admin' });
+        case actionTypes.LogOut:
+            return updateObject(state, {
+                username: "",
+                email: "",
+                state: 0,
+                isReady: false,
+                isActive: false,
+                authority: "",
+                token: "",
+            })
     }
     return state;
 };

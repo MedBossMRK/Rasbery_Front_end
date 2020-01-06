@@ -4,6 +4,7 @@ export {
     ValidateEmailtoReducer,
     userInfo,
     rasberySignUp,
+    LogOut,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -13,4 +14,5 @@ export {
     SendEmail,
     userInfoRegistering,
     rasberySignUpFetch,
+    onLogOutOperation,
 } from './authenticate/noasycnActions/authNoAsyActions'
