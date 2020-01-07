@@ -11,9 +11,12 @@ import thunk from 'redux-thunk';
 import userReducer from './store/reduces/user';
 //import userInfoReducer from './store/reduces/userInfo';
 
+import usersReducer from './store/reduces/users';
+
 const rootReducer = combineReducers({
     user: userReducer,
     // userInfo: userInfoReducer,
+    users: usersReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

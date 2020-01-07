@@ -17,21 +17,33 @@ import DetailedExpansionPanel from '../../materials/ExpensionPanle/ExpensionPanl
 
 class AllUsers extends Component {
 
+
+    componentDidMount() {
+        console.log('init after rendering');
+        console.log(this.props.user);
+        console.log(this.props.users);
+    }
+
+
     render() {
         return (
             <div className={css.Authenticate}>
+                {
+                    this.props.users[0] != undefined ?
+                        <div className={css.panel}>
+                            {
+                                this.props.users.map(username => (
+                                    <DetailedExpansionPanel
+                                        username={username}
+                                        imageUrl={"http://localhost:4000/images/" + { username } + ".png"}
+                                    ></DetailedExpansionPanel>
+                                ))
+                            }
+                        </div>
+                        :
+                        <h1>wait ...</h1>
 
-                <div className={css.panel}>
-                    <DetailedExpansionPanel
-                        username={"Mohamed"}
-                        imageUrl={"http://localhost:4000/images/Mohamed.png"}
-                    ></DetailedExpansionPanel>
-                    <DetailedExpansionPanel
-                        username={"Boushaba"}
-                        imageUrl={"http://localhost:4000/images/Boushaba.png"}
-                    ></DetailedExpansionPanel>
-
-                </div>
+                }
 
             </div >
 
@@ -44,16 +56,16 @@ const mapStateToProps = state => {
     console.log(state.user);
     return {
         user: state.user,
+        users: state.users,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onAction: () => {
-            console.log('action activited');
-            dispatch(actionCreators.signInFetch());
-        },
+        onGetUsers: () => {
+            console.log("get all users");
+        }
     };
 };
 
