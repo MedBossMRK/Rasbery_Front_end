@@ -210,7 +210,7 @@ export const sendInvitationRasberyOperation = (targetInfo, props) => {
 export const ValidateInvitationOperation = (token, props) => {
     return (next) => {
 
-        axios.get(Url + '/InvitationValidation/' + token,
+        axios.get(Url + '/Rasbery/InvitationValidation/' + token,
 
         )
             .then((response) => {
