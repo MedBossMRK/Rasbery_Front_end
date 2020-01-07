@@ -17,6 +17,8 @@ import EmailIcon from '@material-ui/icons/Email';
 import WorkIcon from '@material-ui/icons/Work';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const useStyles = makeStyles({
     list: {
@@ -91,7 +93,8 @@ export default function TemporaryDrawer(props) {
                     </ListItem>
                 </List>
                 :
-                <List>
+
+                < List >
                     <ListItem button key="Home" >
                         <ListItemIcon > <HomeIcon /></ListItemIcon>
                         <ListItemText onClick={(event) => {
@@ -109,34 +112,61 @@ export default function TemporaryDrawer(props) {
 
 
 
-            {props.isActive ?
-                <List>
-                    <ListItem button key="Log Out" >
-                        <ListItemIcon > <ExitToAppIcon /></ListItemIcon>
-                        <ListItemText onClick={(event) => {
-                            props.ItemSelected(event, 'Log Out');
-                        }}
-                            primary={"Log Out"} />
-                    </ListItem>
+            {
+                props.isActive ?
+                    <List>
+                        {
+                            props.status == 1 ?
+                                <ListItem button key="ValidateEmail" >
+                                    <ListItemIcon > <AssignmentTurnedInIcon /></ListItemIcon>
+                                    <ListItemText onClick={(event) => {
+                                        props.ItemSelected(event, 'ValidateEmail');
+                                    }}
+                                        primary={"ValidateEmail"} />
+                                </ListItem>
+                                :
+                                <div></div>
 
-                </List>
-                :
-                <List>
-                    <ListItem button key="Sign In" >
-                        <ListItemIcon > <VpnKeyIcon /></ListItemIcon>
-                        <ListItemText onClick={(event) => {
-                            props.ItemSelected(event, 'Sign In');
-                        }}
-                            primary={"Sign In"} />
-                    </ListItem>
-                    <ListItem button key="Sign Up" >
-                        <ListItemIcon > <MenuBookIcon /></ListItemIcon>
-                        <ListItemText onClick={(event) => {
-                            props.ItemSelected(event, 'Sign Up');
-                        }}
-                            primary={"Sign Up"} />
-                    </ListItem>
-                </List>
+                        }
+                        {
+                            props.status == 2 ?
+                                <ListItem button key="Profile" >
+                                    <ListItemIcon > <AccountCircleIcon /></ListItemIcon>
+                                    <ListItemText onClick={(event) => {
+                                        props.ItemSelected(event, 'Profile');
+                                    }}
+                                        primary={"Profile"} />
+                                </ListItem>
+                                :
+                                <div></div>
+
+                        }
+                        <ListItem button key="Log Out" >
+                            <ListItemIcon > <ExitToAppIcon /></ListItemIcon>
+                            <ListItemText onClick={(event) => {
+                                props.ItemSelected(event, 'Log Out');
+                            }}
+                                primary={"Log Out"} />
+                        </ListItem>
+
+                    </List>
+                    :
+                    <List>
+                        <ListItem button key="Sign In" >
+                            <ListItemIcon > <VpnKeyIcon /></ListItemIcon>
+                            <ListItemText onClick={(event) => {
+                                props.ItemSelected(event, 'Sign In');
+                            }}
+                                primary={"Sign In"} />
+                        </ListItem>
+                        <ListItem button key="Sign Up" >
+                            <ListItemIcon > <MenuBookIcon /></ListItemIcon>
+                            <ListItemText onClick={(event) => {
+                                props.ItemSelected(event, 'Sign Up');
+                            }}
+                                primary={"Sign Up"} />
+                        </ListItem>
+                    </List>
             }
         </div >
 

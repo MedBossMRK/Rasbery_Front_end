@@ -190,7 +190,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-    return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    return ['Sign Up', 'Validate Your Email', 'add your profile'];
 }
 
 function getStepContent(step) {

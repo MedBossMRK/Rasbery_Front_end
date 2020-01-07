@@ -46,6 +46,12 @@ class Nav_bar extends Component {
         } else if (name == "Sign Up") {
             console.log("Sign Up");
             this.props.history.push('/signUp');
+        } else if (name == "ValidateEmail") {
+            console.log("ValidateEmail");
+            this.props.history.push('/EmailValidation');
+        } else if (name == "Profile") {
+            console.log("Profile");
+            this.props.history.push('/UserInfo');
         } else if (name == "Log Out") {
             console.log("Log out");
             this.props.onLogOut(this.props);
@@ -84,6 +90,7 @@ class Nav_bar extends Component {
                 <h1>huik</h1>
                 <Drawer_component
                     isActive={this.props.user.isActive}
+                    status={this.props.user.state}
                     Toggle={this.ToggleDrawer}
                     ToggleKey={this.state.toggleDrawer}
                     DrawerClick={this.DrawerClicked}
