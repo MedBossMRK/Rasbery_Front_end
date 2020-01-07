@@ -21,6 +21,7 @@ import SendInvitationHandler from './Blog/SendInvitationHandler';
 import { createBrowserHistory as createHistory } from "history";
 import validateInvitation from './Blog/validateInvitation';
 import Notification from './Blog/Notification';
+import Operations from './Blog/Operations';
 
 
 
@@ -74,6 +75,12 @@ class Blog extends Component {
                         (this.props.user.authority == "member" || this.props.user.authority == "admin") ?
                         <Route path="/Notification" exact component={Notification} />
                         : <Route path="/Notification" exact render={() => <h1>your are not allowed</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isReady &&
+                        (this.props.user.authority == "member" || this.props.user.authority == "admin") ?
+                        <Route path="/Operations" exact component={Operations} />
+                        : <Route path="/Operations" exact render={() => <h1>your are not allowed</h1>}>
                         </Route>
                     }
 

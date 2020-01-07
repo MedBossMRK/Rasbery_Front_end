@@ -39,7 +39,7 @@ class Nav_bar extends Component {
             this.props.history.push('/SendInviation');
         } else if (name == "Operations") {
             console.log("Operations");
-            this.props.history.push('/');
+            this.props.history.push('/Operations');
         } else if (name == "Sign In") {
             console.log("Sign In");
             this.props.history.push('/signIn');
