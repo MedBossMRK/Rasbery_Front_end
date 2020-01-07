@@ -16,8 +16,8 @@ import DetailedExpansionPanel from '../../materials/ExpensionPanle/ExpensionPanl
 
 
 class AllUsers extends Component {
-
-
+    /*Picture = ""
+    url = "http://localhost:4000/images/Mohamed.png";*/
     componentDidMount() {
         console.log('init after rendering');
         console.log(this.props.user);
@@ -33,9 +33,10 @@ class AllUsers extends Component {
                         <div className={css.panel}>
                             {
                                 this.props.user.users.map(username => (
-                                    <DetailedExpansionPanel
+
+                                    < DetailedExpansionPanel
                                         username={username}
-                                        imageUrl={"http://localhost:4000/images/" + { username } + ".png"}
+                                        imageUrl={"http://localhost:4000/images/" + username + ".png"}
                                     ></DetailedExpansionPanel>
                                 ))
                             }
