@@ -33,18 +33,61 @@ class Blog extends Component {
                     <Route component={Nav_bar} />
                 </header>
                 <Switch>
-                    <Route path="/SignIn" exact component={SingInHolder} />
-                    <Route path="/SignUp" exact component={SignUpHolder} />
-                    <Route path="/EmailValidation" exact component={EmailValidationHolder} />
+                    {!this.props.user.isActive ?
+                        <Route path="/SignIn" exact component={SingInHolder} />
+                        : <Route path="/SignIn" exact render={() => <h1>you have to logout first</h1>}>
+                        </Route>
+                    }
+                    {!this.props.user.isActive ?
+                        <Route path="/SignUp" exact component={SignUpHolder} />
+                        : <Route path="/SignUp" exact render={() => <h1>you have to logout first</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.state == 1 ?
+                        <Route path="/EmailValidation" exact component={EmailValidationHolder} />
+                        : <Route path="/EmailValidation" exact render={() => <h1>your state is not correct</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.state == 2 ?
+                        <Route path="/UserInfo" exact component={UserInfoHandler} />
+                        : <Route path="/UserInfo" exact render={() => <h1>your state is not correct</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isReady ?
+                        <Route path="/RasberyConnect" exact component={RasberyConnect} />
+                        : <Route path="/RasberyConnect" exact render={() => <h1>your are not ready</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isReady && this.props.user.authority == "admin" ?
+                        <Route path="/AllUsers" exact component={AllUsers} />
+                        : <Route path="/AllUsers" exact render={() => <h1>your are not allowed</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isReady && this.props.user.authority == "admin" ?
+                        <Route path="/SendInviation" exact component={SendInvitationHandler} />
+                        : <Route path="/SendInviation" exact render={() => <h1>your are not allowed</h1>}>
+                        </Route>
+                    }
+
+                    {this.props.user.isActive ?
+                        <Route path="/Home" exact component={Home} /> :
+                        <Route render={() => <h1>you are not connected</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isActive ?
+                        <Route path="/" exact component={Home} /> :
+                        <Route render={() => <h1>you are not connected</h1>}>
+                        </Route>
+                    }
+
                     <Route path="/ValidateEmail/:token" exact component={ValidateEmail} />
-                    <Route path="/UserInfo" exact component={UserInfoHandler} />
-                    <Route path="/RasberyConnect" exact component={RasberyConnect} />
-                    <Route path="/AllUsers" exact component={AllUsers} />
-                    <Route path="/SendInviation" exact component={SendInvitationHandler} />
+
+
+
+
                     <Route path="/ValidateInvitation/:token" exact component={validateInvitation} />
-                    {this.props.user.isActive ? <Route path="/Home" exact component={Home} /> :
-                        <Route render={() => <h1>you are not connected</h1>}></Route>}
-                    <Route path="/" exact component={Home} />
+
+
                     <Route component={Error404} />
 
                 </Switch>

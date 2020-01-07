@@ -9,6 +9,7 @@ export const signInFetch = ((userLogin, props) => {
             userLogin
         )
             .then((response) => {
+                console.log("#############");
                 console.log(response.data);
                 next(actionCreators.signIn({
                     username: response.data.username,
@@ -119,7 +120,7 @@ export const onLogOutOperation = (props) => {
             .then((response) => {
                 console.log(response.data);
                 next(actionCreators.LogOut());
-                props.history.push('/');
+                props.history.push('/signIn');
             })
             .catch((error) => {
                 console.log(error);
