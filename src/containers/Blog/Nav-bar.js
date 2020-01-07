@@ -25,12 +25,27 @@ class Nav_bar extends Component {
         console.log("Item Selected");
         e.stopPropagation();
         console.log(name);
-        if (name == "Connect") {
+        if (name == "Home") {
+            console.log("Home");
+            this.props.history.push('/');
+        } else if (name == "Connect") {
             console.log("Connect");
             this.props.history.push('/RasberyConnect');
         } else if (name == "Users") {
             console.log("users");
             this.props.history.push('/AllUsers');
+        } else if (name == "SendInvitation") {
+            console.log("SendInvitation");
+            this.props.history.push('/SendInviation');
+        } else if (name == "Operations") {
+            console.log("Operations");
+            this.props.history.push('/');
+        } else if (name == "Sign In") {
+            console.log("Sign In");
+            this.props.history.push('/signIn');
+        } else if (name == "Sign Up") {
+            console.log("Sign Up");
+            this.props.history.push('/signUp');
         } else if (name == "Log Out") {
             console.log("Log out");
             this.props.onLogOut(this.props);
