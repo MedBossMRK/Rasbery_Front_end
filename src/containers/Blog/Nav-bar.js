@@ -15,7 +15,7 @@ class Nav_bar extends Component {
     }
 
     ToggleDrawer = () => {
-        //   console.log("toggle drawer");
+        console.log("toggle drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = !toggle.toggleDrawer;
         this.setState(toggle);
@@ -52,6 +52,10 @@ class Nav_bar extends Component {
         } else if (name == "Profile") {
             console.log("Profile");
             this.props.history.push('/UserInfo');
+        } else if (name == "Notification") {
+            console.log("Notification");
+            this.props.history.push('/Notification');
+            // this.ToggleDrawer();
         } else if (name == "Log Out") {
             console.log("Log out");
             this.props.onLogOut(this.props);
@@ -64,19 +68,19 @@ class Nav_bar extends Component {
 
 
     OpenDrawer = () => {
-        //  console.log("toggle drawer");
+        console.log("open drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = true;
         this.setState(toggle);
     }
     CloseDrawer = () => {
-        //    console.log("toggle drawer");
+        console.log("close drawer");
         let toggle = { ... this.state }
         toggle.toggleDrawer = false;
         this.setState(toggle);
     }
     DrawerClicked = () => {
-        //  console.log("drawer clicked");
+        console.log("drawer clicked");
         let toggle = { ... this.state }
         toggle.toggleDrawer = false;
         this.setState(toggle);
@@ -86,7 +90,13 @@ class Nav_bar extends Component {
 
         return (
             <div>
-                <Nav_bar_component Toggle={this.ToggleDrawer} ></Nav_bar_component>
+                <Nav_bar_component
+                    Toggle={this.ToggleDrawer}
+                    isActive={this.props.user.isActive}
+                    ItemSelected={this.ItemSelected}
+                >
+
+                </Nav_bar_component>
                 <h1>huik</h1>
                 <Drawer_component
                     isActive={this.props.user.isActive}

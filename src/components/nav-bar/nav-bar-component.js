@@ -129,33 +129,46 @@ export default function PrimarySearchAppBar(props) {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton aria-label="show 11 new notifications" color="inherit">
+
+            <MenuItem >
+                <IconButton
+                    aria-label="show 11 new notifications"
+                    color="inherit"
+                    onClick={(event) => {
+                        console.log("click");
+                        props.ItemSelected(event, "Notification");
+                    }}
+
+                >
                     <Badge badgeContent={11} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
-                <p>Notifications</p>
+                <p
+                    onClick={(event) => {
+                        console.log("click");
+                        props.ItemSelected(event, "Notification");
+                    }}
+                >
+                    Notifications
+                    </p>
             </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
+            {/*
+             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     aria-label="account of current user"
                     aria-controls="primary-search-account-menu"
                     aria-haspopup="true"
                     color="inherit"
+
+
                 >
                     <AccountCircle />
                 </IconButton>
                 <p>Profile</p>
             </MenuItem>
+            */ }
+
         </Menu>
     );
 
@@ -173,10 +186,11 @@ export default function PrimarySearchAppBar(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
+
+                    {/*
+                     <Typography className={classes.title} variant="h6" noWrap>
                         Home
                      </Typography>
-                    {/*
                 <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
