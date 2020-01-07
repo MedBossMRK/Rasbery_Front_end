@@ -12,7 +12,11 @@ import MailIcon from '@material-ui/icons/Mail';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
 import GroupIcon from '@material-ui/icons/Group';
-
+import HomeIcon from '@material-ui/icons/Home';
+import EmailIcon from '@material-ui/icons/Email';
+import WorkIcon from '@material-ui/icons/Work';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 const useStyles = makeStyles({
     list: {
@@ -47,28 +51,95 @@ export default function TemporaryDrawer(props) {
             // onClick={props.ItemSelected}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <List>
-                {['Connect', 'Users'].map((text, index) => (
-                    <ListItem button key={text} >
-                        <ListItemIcon >{index % 2 === 0 ? <SettingsInputAntennaIcon /> : <GroupIcon />}</ListItemIcon>
+
+            {props.isActive ?
+                <List>
+                    <ListItem button key="Home" >
+                        <ListItemIcon > <HomeIcon /></ListItemIcon>
                         <ListItemText onClick={(event) => {
-                            props.ItemSelected(event, text);
+                            props.ItemSelected(event, 'Home');
                         }}
-                            primary={text} />
+                            primary={"Home"} />
                     </ListItem>
-                ))}
-            </List>
+                    <ListItem button key="Connect" >
+                        <ListItemIcon > <SettingsInputAntennaIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Connect');
+                        }}
+                            primary={"Connect"} />
+                    </ListItem>
+                    <ListItem button key="Users" >
+                        <ListItemIcon > <GroupIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Users');
+                        }}
+                            primary={"Users"} />
+                    </ListItem>
+                    <ListItem button key="SendInvitation" >
+                        <ListItemIcon > <EmailIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'SendInvitation');
+                        }}
+                            primary={"SendInvitation"} />
+                    </ListItem>
+                    <ListItem button key="Operations" >
+                        <ListItemIcon > <WorkIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Operations');
+                        }}
+                            primary={"Operations"} />
+                    </ListItem>
+                </List>
+                :
+                <List>
+                    <ListItem button key="Home" >
+                        <ListItemIcon > <HomeIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Home');
+                        }}
+                            primary={"Home"} />
+                    </ListItem>
+                </List>
+            }
+
+
+
+
             <Divider />
-            <List>
-                {['Log Out'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
-                        <ListItemText onClick={(event) => props.ItemSelected(event, text)}
-                            primary={text} />
+
+
+
+            {props.isActive ?
+                <List>
+                    <ListItem button key="Log Out" >
+                        <ListItemIcon > <ExitToAppIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Log Out');
+                        }}
+                            primary={"Log Out"} />
                     </ListItem>
-                ))}
-            </List>
-        </div>
+
+                </List>
+                :
+                <List>
+                    <ListItem button key="Sign In" >
+                        <ListItemIcon > <VpnKeyIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Sign In');
+                        }}
+                            primary={"Sign In"} />
+                    </ListItem>
+                    <ListItem button key="Sign Up" >
+                        <ListItemIcon > <MenuBookIcon /></ListItemIcon>
+                        <ListItemText onClick={(event) => {
+                            props.ItemSelected(event, 'Sign Up');
+                        }}
+                            primary={"Sign Up"} />
+                    </ListItem>
+                </List>
+            }
+        </div >
+
     );
 
     const fullList = side => (

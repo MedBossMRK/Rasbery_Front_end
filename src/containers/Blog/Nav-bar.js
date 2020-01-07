@@ -62,16 +62,13 @@ class Nav_bar extends Component {
     }
 
     render() {
-        const divStyle = {
-            color: 'black',
-            heigh: '400px',
-        };
-        const { history } = this.props
+
         return (
             <div>
                 <Nav_bar_component Toggle={this.ToggleDrawer} ></Nav_bar_component>
                 <h1>huik</h1>
                 <Drawer_component
+                    isActive={this.props.user.isActive}
                     Toggle={this.ToggleDrawer}
                     ToggleKey={this.state.toggleDrawer}
                     DrawerClick={this.DrawerClicked}
