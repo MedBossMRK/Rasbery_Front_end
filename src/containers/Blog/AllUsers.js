@@ -35,6 +35,7 @@ class AllUsers extends Component {
                                 this.props.user.users.map(username => (
 
                                     < DetailedExpansionPanel
+                                        deleteuser={this.onDeleteUserSelect}
                                         username={username}
                                         imageUrl={"http://localhost:4000/images/" + username + ".png"}
                                     ></DetailedExpansionPanel>
@@ -50,6 +51,16 @@ class AllUsers extends Component {
 
         );
     }
+
+    onDeleteUserSelect = (targetname) => {
+        console.log("delete user from rasbery");
+        console.log(targetname);
+        this.props.onDeleteUser(targetname, this.props);
+        // this.props.onGetUsers(this.props);
+        // console.log(this.props);
+
+    }
+
 }
 
 
@@ -66,6 +77,10 @@ const mapDispatchToProps = dispatch => {
         onGetUsers: (props) => {
             console.log("get all users");
             dispatch(actionCreators.getAllMembersOperation(props));
+        },
+        onDeleteUser: (targetname, props) => {
+            console.log("delete user from rasbery begin operation");
+            dispatch(actionCreators.deleteUserFromRasberyOperation(targetname, props));
         }
     };
 };

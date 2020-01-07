@@ -263,3 +263,32 @@ export const getAllMembersOperation = (props) => {
 
 };
 
+
+export const deleteUserFromRasberyOperation = (targetname, props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.post(Url + '/Rasbery/DeleteUserFromRasbery/', { targetname: targetname }, config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.deleteUserFromRasbery());
+                props.history.push('/');
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on validation invitation");
+            });
+
+    }
+
+};
+

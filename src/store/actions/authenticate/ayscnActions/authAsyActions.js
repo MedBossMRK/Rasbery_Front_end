@@ -68,3 +68,8 @@ export const getAllMembers = (users) => {
     }
 }
 
+export const deleteUserFromRasbery = () => {
+    return {
+        type: actionTypes.deleteUserFromRasbery,
+    }
+}

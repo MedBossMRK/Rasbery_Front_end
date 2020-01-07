@@ -8,6 +8,7 @@ export {
     sendInvitationRasbery,
     ValidateInvitation,
     getAllMembers,
+    deleteUserFromRasbery,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -20,5 +21,6 @@ export {
     onLogOutOperation,
     sendInvitationRasberyOperation,
     ValidateInvitationOperation,
-    getAllMembersOperation
+    getAllMembersOperation,
+    deleteUserFromRasberyOperation
 } from './authenticate/noasycnActions/authNoAsyActions'

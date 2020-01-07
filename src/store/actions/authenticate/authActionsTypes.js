@@ -9,3 +9,4 @@ export const LogOut = "LogOut";
 export const sendInvitationRasbery = "sendInvitationRasbery";
 export const ValidateInvitation = "ValidateInvitation";
 export const getAllMembers = "getAllMembers";
+export const deleteUserFromRasbery = "deleteUserFromRasbery";

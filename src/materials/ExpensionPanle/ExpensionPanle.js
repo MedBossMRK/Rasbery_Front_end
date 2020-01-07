@@ -71,6 +71,10 @@ export default function SimpleExpansionPanel(props) {
                                     color="secondary"
                                     className={css.actioncards}
                                     startIcon={<DeleteIcon />}
+                                    name={props.username}
+                                    onClick={() => {
+                                        props.deleteuser(props.username);
+                                    }}
                                 >
                                     Delete
                                  </Button>

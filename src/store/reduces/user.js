@@ -53,6 +53,9 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, { authority: 'member' });
         case actionTypes.getAllMembers:
             return updateObject(state, { users: action.users })
+        case actionTypes.deleteUserFromRasbery: {
+            return updateObject(state, {});
+        }
 
     }
     return state;
