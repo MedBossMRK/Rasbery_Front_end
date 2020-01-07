@@ -61,4 +61,10 @@ export const ValidateInvitation = () => {
         type: actionTypes.ValidateInvitation
     }
 }
+export const getAllMembers = (users) => {
+    return {
+        type: actionTypes.getAllMembers,
+        users: users
+    }
+}
 

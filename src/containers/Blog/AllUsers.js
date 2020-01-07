@@ -21,7 +21,7 @@ class AllUsers extends Component {
     componentDidMount() {
         console.log('init after rendering');
         console.log(this.props.user);
-        console.log(this.props.users);
+        this.props.onGetUsers(this.props);
     }
 
 
@@ -29,10 +29,10 @@ class AllUsers extends Component {
         return (
             <div className={css.Authenticate}>
                 {
-                    this.props.users[0] != undefined ?
+                    this.props.user.users[0] != undefined ?
                         <div className={css.panel}>
                             {
-                                this.props.users.map(username => (
+                                this.props.user.users.map(username => (
                                     <DetailedExpansionPanel
                                         username={username}
                                         imageUrl={"http://localhost:4000/images/" + { username } + ".png"}
@@ -56,15 +56,15 @@ const mapStateToProps = state => {
     console.log(state.user);
     return {
         user: state.user,
-        users: state.users,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onGetUsers: () => {
+        onGetUsers: (props) => {
             console.log("get all users");
+            dispatch(actionCreators.getAllMembersOperation(props));
         }
     };
 };

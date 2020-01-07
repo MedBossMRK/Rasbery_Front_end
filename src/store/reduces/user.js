@@ -15,6 +15,7 @@ if (initialUserState == undefined || initialUserState == null) {
         isActive: false,
         authority: "",
         token: "",
+        users: [],
     };
 
     initialUserStateSerialize = JSON.stringify(initialUserState);
@@ -23,6 +24,7 @@ if (initialUserState == undefined || initialUserState == null) {
 
 
 const reducer = (state = initialUserState, action) => {
+
     switch (action.type) {
         case actionTypes.signIn:
             return updateObject(state, action.user);
@@ -43,11 +45,14 @@ const reducer = (state = initialUserState, action) => {
                 isActive: false,
                 authority: "",
                 token: "",
+                users: [],
             });
         case actionTypes.sendInvitationRasbery:
             return updateObject(state, {});
         case actionTypes.ValidateInvitation:
             return updateObject(state, { authority: 'member' });
+        case actionTypes.getAllMembers:
+            return updateObject(state, { users: action.users })
 
     }
     return state;

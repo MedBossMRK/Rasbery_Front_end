@@ -227,3 +227,39 @@ export const ValidateInvitationOperation = (token, props) => {
 
 };
 
+
+export const getAllMembersOperation = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/Rasbery/getAllUsers/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                console.log(response.data.length);
+                let users = [];
+                let index = 0;
+                while (index < response.data.length) {
+                    users.push(response.data[index]);
+                    index++;
+                }
+                console.log(users);
+                next(actionCreators.getAllMembers(users));
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on validation invitation");
+            });
+
+    }
+
+};
+
