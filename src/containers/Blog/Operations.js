@@ -16,6 +16,20 @@ import Operation from '../../components/authenticate/Operation';
 
 class Operations extends Component {
 
+    componentDidMount() {
+        console.log('init after rendering');
+        if (this.props.user.authority == "admin") {
+            this.props.onGetMotorStatusAdmin(this.props);
+        } else if (this.props.user.authority == "member") {
+            this.props.onGetMotorStatusMember(this.props);
+        } else {
+            console.log("you are not allow");
+        }
+
+    }
+
+
+
     Submit = () => {
         console.log("submit");
         if (this.props.user.authority == "admin") {
@@ -49,13 +63,29 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onSubmitAdmin: (props) => {
-            console.log("on submit operation admin");
+        onGetMotorStatusMember: (props) => {
+            console.log(":::::get motor status member::::::");
+            dispatch(actionCreators.getMotorStatusOperationMember(props));
+        },
+        onGetMotorStatusAdmin: (props) => {
+            console.log(":::::get motor status admin::::::");
+            dispatch(actionCreators.getMotorStatusOperationAdmin(props));
+        },
+        onSubmitOnAdmin: (props) => {
+            console.log("on submit on operation admin");
             dispatch(actionCreators.TurnOnMotorOperationAdmin(props));
         },
-        onSubmitMember: (props) => {
-            console.log("on submit operation member");
+        onSubmitOnMember: (props) => {
+            console.log("on submit on operation member");
             dispatch(actionCreators.TurnOnMotorOperationMember(props));
+        },
+        onSubmitOffAdmin: (props) => {
+            console.log("on submit off operation admin");
+            //dispatch(actionCreators.TurnOnMotorOperationAdmin(props));
+        },
+        onSubmitOffMember: (props) => {
+            console.log("on submit off operation member");
+            //dispatch(actionCreators.TurnOnMotorOperationMember(props));
         }
     };
 };

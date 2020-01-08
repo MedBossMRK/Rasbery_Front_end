@@ -15,7 +15,10 @@ if (initialUserState == undefined || initialUserState == null) {
         isActive: false,
         authority: "",
         token: "",
+        motorStatus: false,
         users: [],
+        notifications: [],
+
     };
 
     initialUserStateSerialize = JSON.stringify(initialUserState);
@@ -57,6 +60,8 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, {});
         case actionTypes.TurnOnMotor:
             return updateObject(state, {});
+        case actionTypes.getMotorStatus:
+            return updateObject(state, { motorStatus: action.status })
 
     }
     return state;

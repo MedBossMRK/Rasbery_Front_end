@@ -351,3 +351,59 @@ export const TurnOnMotorOperationMember = (props) => {
 };
 
 
+export const getMotorStatusOperationAdmin = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/MotorStatusAdmin/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.TurnOnMotor);
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on get motor status for admin ");
+            });
+
+    }
+
+};
+
+
+export const getMotorStatusOperationMember = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/MotorStatusMember/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.getMotorStatus(response.data));
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on get mototr status for member");
+            });
+
+    }
+
+};
+
+

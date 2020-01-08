@@ -78,3 +78,9 @@ export const TurnOnMotor = () => {
         type: actionTypes.TurnOnMotor,
     }
 }
+export const getMotorStatus = (status) => {
+    return {
+        type: actionTypes.getMotorStatus,
+        status: status,
+    }
+}
