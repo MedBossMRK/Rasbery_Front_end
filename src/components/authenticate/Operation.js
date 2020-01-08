@@ -52,14 +52,28 @@ class Operation extends Component {
                         title="Open the key"
                     />
                     <CardActions >
-                        <Button className={css.actioncards}
-                            variant="contained"
-                            color="secondary"
-                            href="#contained-buttons"
-                            onClick={this.props.submit}
-                        >
-                            Open
-                        </Button>
+                        {
+                            this.props.operation ?
+                                <Button className={css.actioncards}
+                                    variant="contained"
+                                    color="secondary"
+                                    href="#contained-buttons"
+                                    onClick={this.props.submit}
+                                >
+                                    turn off
+                                </Button>
+                                :
+                                <Button className={css.actioncards}
+                                    variant="contained"
+                                    color="secondary"
+                                    href="#contained-buttons"
+                                    onClick={this.props.submit}
+                                >
+                                    turn on
+                                </Button>
+                        }
+
+
 
                     </CardActions>
 

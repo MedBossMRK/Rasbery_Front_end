@@ -310,7 +310,7 @@ export const TurnOnMotorOperationAdmin = (props) => {
             .then((response) => {
                 console.log("okkkkkkkkkk");
                 console.log(response.data);
-                next(actionCreators.TurnOnMotor);
+                next(actionCreators.TurnOnMotor());
 
             })
             .catch((error) => {
@@ -338,7 +338,7 @@ export const TurnOnMotorOperationMember = (props) => {
             .then((response) => {
                 console.log("okkkkkkkkkk");
                 console.log(response.data);
-                next(actionCreators.TurnOnMotor);
+                next(actionCreators.TurnOnMotor());
 
             })
             .catch((error) => {
@@ -366,7 +366,7 @@ export const getMotorStatusOperationAdmin = (props) => {
             .then((response) => {
                 console.log("okkkkkkkkkk");
                 console.log(response.data);
-                next(actionCreators.TurnOnMotor);
+                next(actionCreators.getMotorStatus(response.data));
 
             })
             .catch((error) => {

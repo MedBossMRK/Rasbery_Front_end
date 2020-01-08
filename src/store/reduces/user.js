@@ -55,11 +55,11 @@ const reducer = (state = initialUserState, action) => {
         case actionTypes.ValidateInvitation:
             return updateObject(state, { authority: 'member' });
         case actionTypes.getAllMembers:
-            return updateObject(state, { users: action.users })
+            return updateObject(state, { users: action.users });
         case actionTypes.deleteUserFromRasbery:
             return updateObject(state, {});
         case actionTypes.TurnOnMotor:
-            return updateObject(state, {});
+            return updateObject(state, { motorStatus: true });
         case actionTypes.getMotorStatus:
             return updateObject(state, { motorStatus: action.status })
 

@@ -33,9 +33,18 @@ class Operations extends Component {
     Submit = () => {
         console.log("submit");
         if (this.props.user.authority == "admin") {
-            this.props.onSubmitAdmin(this.props);
+            if (this.props.user.motorStatus) {
+                this.props.onSubmitOffAdmin(this.props);
+            } else {
+                this.props.onSubmitOnAdmin(this.props);
+            }
+
         } else if (this.props.user.authority == "member") {
-            this.props.onSubmitMember(this.props);
+            if (this.props.user.motorStatus) {
+                this.props.onSubmitOffMember(this.props);
+            } else {
+                this.props.onSubmitOnMember(this.props);
+            }
         } else {
             console.log("you are not allowed");
         }
@@ -45,7 +54,10 @@ class Operations extends Component {
     render() {
         return (
             <div className={css.Authenticate}>
-                <Operation submit={this.Submit}></Operation>
+                <Operation
+                    submit={this.Submit}
+                    operation={this.props.user.motorStatus}
+                ></Operation>
             </div>
 
         );
