@@ -73,9 +73,17 @@ export const deleteUserFromRasbery = () => {
         type: actionTypes.deleteUserFromRasbery,
     }
 }
+
+
 export const TurnOnMotor = () => {
     return {
         type: actionTypes.TurnOnMotor,
+    }
+}
+
+export const TurnOffMotor = () => {
+    return {
+        type: actionTypes.TurnOffMotor
     }
 }
 export const getMotorStatus = (status) => {

@@ -351,6 +351,64 @@ export const TurnOnMotorOperationMember = (props) => {
 };
 
 
+
+export const TurnOffMotorOperationAdmin = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/TurnOffAdmin/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.TurnOffMotor());
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on turn off mototr");
+            });
+
+    }
+
+};
+
+
+export const TurnOffMotorOperationMember = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/TurnOffMember/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.TurnOffMotor());
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on turn off motor");
+            });
+
+    }
+
+};
+
+
+
 export const getMotorStatusOperationAdmin = (props) => {
     return (next) => {
         let config = {

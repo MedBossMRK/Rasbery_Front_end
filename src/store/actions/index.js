@@ -10,6 +10,7 @@ export {
     getAllMembers,
     deleteUserFromRasbery,
     TurnOnMotor,
+    TurnOffMotor,
     getMotorStatus,
 } from './authenticate/ayscnActions/authAsyActions'
 
@@ -27,6 +28,9 @@ export {
     deleteUserFromRasberyOperation,
     TurnOnMotorOperationAdmin,
     TurnOnMotorOperationMember,
+    TurnOffMotorOperationAdmin,
+    TurnOffMotorOperationMember,
     getMotorStatusOperationAdmin,
     getMotorStatusOperationMember,
+
 } from './authenticate/noasycnActions/authNoAsyActions'

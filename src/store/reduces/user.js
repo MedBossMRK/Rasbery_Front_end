@@ -60,6 +60,8 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, {});
         case actionTypes.TurnOnMotor:
             return updateObject(state, { motorStatus: true });
+        case actionTypes.TurnOffMotor:
+            return updateObject(state, { motorStatus: false });
         case actionTypes.getMotorStatus:
             return updateObject(state, { motorStatus: action.status })
 

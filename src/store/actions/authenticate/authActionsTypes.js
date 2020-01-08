@@ -11,4 +11,5 @@ export const ValidateInvitation = "ValidateInvitation";
 export const getAllMembers = "getAllMembers";
 export const deleteUserFromRasbery = "deleteUserFromRasbery";
 export const TurnOnMotor = "TurnOnMotor";
+export const TurnOffMotor = "TurnOffMotor";
 export const getMotorStatus = "getMotorStatus";

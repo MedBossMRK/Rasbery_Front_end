@@ -93,11 +93,11 @@ const mapDispatchToProps = dispatch => {
         },
         onSubmitOffAdmin: (props) => {
             console.log("on submit off operation admin");
-            //dispatch(actionCreators.TurnOnMotorOperationAdmin(props));
+            dispatch(actionCreators.TurnOffMotorOperationAdmin(props));
         },
         onSubmitOffMember: (props) => {
             console.log("on submit off operation member");
-            //dispatch(actionCreators.TurnOnMotorOperationMember(props));
+            dispatch(actionCreators.TurnOffMotorOperationMember(props));
         }
     };
 };
