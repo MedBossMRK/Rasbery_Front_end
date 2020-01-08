@@ -73,3 +73,8 @@ export const deleteUserFromRasbery = () => {
         type: actionTypes.deleteUserFromRasbery,
     }
 }
+export const TurnOnMotor = () => {
+    return {
+        type: actionTypes.TurnOnMotor,
+    }
+}

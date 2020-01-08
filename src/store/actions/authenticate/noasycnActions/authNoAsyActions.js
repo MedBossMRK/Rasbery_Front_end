@@ -293,3 +293,61 @@ export const deleteUserFromRasberyOperation = (targetname, props) => {
 
 };
 
+
+
+export const TurnOnMotorOperationAdmin = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/TurnOnAdmin/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.TurnOnMotor);
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on validation invitation");
+            });
+
+    }
+
+};
+
+
+export const TurnOnMotorOperationMember = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/TurnOnMember/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                next(actionCreators.TurnOnMotor);
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on validation invitation");
+            });
+
+    }
+
+};
+
+

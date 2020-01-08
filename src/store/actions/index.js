@@ -9,6 +9,7 @@ export {
     ValidateInvitation,
     getAllMembers,
     deleteUserFromRasbery,
+    TurnOnMotor,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -22,5 +23,7 @@ export {
     sendInvitationRasberyOperation,
     ValidateInvitationOperation,
     getAllMembersOperation,
-    deleteUserFromRasberyOperation
+    deleteUserFromRasberyOperation,
+    TurnOnMotorOperationAdmin,
+    TurnOnMotorOperationMember,
 } from './authenticate/noasycnActions/authNoAsyActions'
