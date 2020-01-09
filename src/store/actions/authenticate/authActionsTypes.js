@@ -9,6 +9,7 @@ export const LogOut = "LogOut";
 export const sendInvitationRasbery = "sendInvitationRasbery";
 export const ValidateInvitation = "ValidateInvitation";
 export const getAllMembers = "getAllMembers";
+export const getAllNotifications = "getAllNotifications";
 export const deleteUserFromRasbery = "deleteUserFromRasbery";
 export const TurnOnMotor = "TurnOnMotor";
 export const TurnOffMotor = "TurnOffMotor";

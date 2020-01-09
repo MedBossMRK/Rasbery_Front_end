@@ -68,6 +68,15 @@ export const getAllMembers = (users) => {
     }
 }
 
+
+export const getAllNotifications = (notifications) => {
+    return {
+        type: actionTypes.getAllNotifications,
+        notifications: notifications,
+    }
+}
+
+
 export const deleteUserFromRasbery = () => {
     return {
         type: actionTypes.deleteUserFromRasbery,
@@ -92,3 +101,4 @@ export const getMotorStatus = (status) => {
         status: status,
     }
 }
+

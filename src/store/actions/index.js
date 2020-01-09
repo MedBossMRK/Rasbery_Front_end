@@ -12,6 +12,7 @@ export {
     TurnOnMotor,
     TurnOffMotor,
     getMotorStatus,
+    getAllNotifications,
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {
@@ -25,6 +26,8 @@ export {
     sendInvitationRasberyOperation,
     ValidateInvitationOperation,
     getAllMembersOperation,
+    getAllNotificationsOperationAdmin,
+    getAllNotificationsOperationMember,
     deleteUserFromRasberyOperation,
     TurnOnMotorOperationAdmin,
     TurnOnMotorOperationMember,

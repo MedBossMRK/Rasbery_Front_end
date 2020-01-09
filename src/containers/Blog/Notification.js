@@ -19,8 +19,13 @@ class Notification extends Component {
 
     componentDidMount() {
         console.log('init after rendering');
-
-        this.props.onGetNotifications(this.props);
+        if (this.props.user.authority == "admin") {
+            this.props.onGetNotificationsAdmin(this.props);
+        } else if (this.props.user.authority == "member") {
+            this.props.onGetNotificationsMember(this.props);
+        } else {
+            console.log("you are not allow");
+        }
     }
 
 
@@ -28,7 +33,7 @@ class Notification extends Component {
         return (
             <div className={css.Authenticate}>
                 {
-                    this.props.user.users[0] != undefined ?
+                    this.props.user.notifications[0] != undefined ?
                         <div className={css.panel}>
                             {
                                 this.props.user.notifications.map(notif => (
@@ -65,9 +70,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onGetNotifications: (props) => {
-            console.log("get all notifications");
-            // dispatch(actionCreators.getAllMembersOperation(props));
+        onGetNotificationsAdmin: (props) => {
+            console.log("get all notifications admin");
+            dispatch(actionCreators.getAllNotificationsOperationAdmin(props));
+        },
+        onGetNotificationsMember: (props) => {
+            console.log("get all notifications member");
+            dispatch(actionCreators.getAllNotificationsOperationMember(props));
         },
 
     };

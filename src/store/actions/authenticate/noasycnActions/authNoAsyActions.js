@@ -265,6 +265,82 @@ export const getAllMembersOperation = (props) => {
 };
 
 
+
+export const getAllNotificationsOperationAdmin = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyNotification/GetAllNotificationAdmin/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                console.log(response.data.length);
+                let notifications = [];
+                let index = 0;
+                while (index < response.data.length) {
+                    notifications.push(response.data[index]);
+                    index++;
+                }
+                console.log(notifications);
+                next(actionCreators.getAllNotifications(notifications));
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on get all notification admin");
+            });
+
+    }
+
+};
+
+
+
+export const getAllNotificationsOperationMember = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyNotification/GetAllNotificationMember/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                console.log(response.data.length);
+                let notifications = [];
+                let index = 0;
+                while (index < response.data.length) {
+                    notifications.push(response.data[index]);
+                    index++;
+                }
+                console.log(notifications);
+                next(actionCreators.getAllNotifications(notifications));
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on get all notification member");
+            });
+
+    }
+
+};
+
+
+
+
 export const deleteUserFromRasberyOperation = (targetname, props) => {
     return (next) => {
         let config = {
