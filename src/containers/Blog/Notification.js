@@ -12,17 +12,16 @@ import css from '../../css/Globale.css'
 
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
-import DetailedExpansionPanel from '../../materials/ExpensionPanle/ExpensionPanle';
+import DetailedExpansionPanel from '../../materials/ExpensionPanle/ExpensionPanel1';
 
 
 class Notification extends Component {
-    /*Picture = ""
-    url = "http://localhost:4000/images/Mohamed.png";*/
-    /*componentDidMount() {
+
+    componentDidMount() {
         console.log('init after rendering');
-        console.log(this.props.user);
-        this.props.onGetUsers(this.props);
-    }*/
+
+        this.props.onGetNotifications(this.props);
+    }
 
 
     render() {
@@ -32,12 +31,12 @@ class Notification extends Component {
                     this.props.user.users[0] != undefined ?
                         <div className={css.panel}>
                             {
-                                this.props.user.users.map(username => (
+                                this.props.user.notifications.map(notif => (
 
                                     < DetailedExpansionPanel
-                                        deleteuser={this.onDeleteUserSelect}
-                                        username={username}
-                                        imageUrl={"http://localhost:4000/images/" + username + ".png"}
+
+                                        username={notif.sendername}
+                                        imageUrl={"http://localhost:4000/images/" + notif.sendername + ".png"}
                                     ></DetailedExpansionPanel>
                                 ))
                             }
@@ -52,14 +51,6 @@ class Notification extends Component {
         );
     }
 
-    onDeleteUserSelect = (targetname) => {
-        console.log("delete user from rasbery");
-        console.log(targetname);
-        this.props.onDeleteUser(targetname, this.props);
-        // this.props.onGetUsers(this.props);
-        // console.log(this.props);
-
-    }
 
 }
 
@@ -74,14 +65,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
-        onGetUsers: (props) => {
-            console.log("get all users");
-            dispatch(actionCreators.getAllMembersOperation(props));
+        onGetNotifications: (props) => {
+            console.log("get all notifications");
+            // dispatch(actionCreators.getAllMembersOperation(props));
         },
-        onDeleteUser: (targetname, props) => {
-            console.log("delete user from rasbery begin operation");
-            dispatch(actionCreators.deleteUserFromRasberyOperation(targetname, props));
-        }
+
     };
 };
 
