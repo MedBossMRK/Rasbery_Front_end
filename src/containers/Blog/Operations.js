@@ -28,19 +28,19 @@ class Operations extends Component {
 
         socket.on("turnOn", () => {
             console.log(":::::::::::::::start turn on runtime:::::::::::::::::::");
-
+            this.props.onTurnOnRuntime();
             console.log(":::::::::::::::end trun on runtime ::::::::::::::")
         });
 
         socket.on("turnOff", () => {
             console.log(":::::::::::::::start turn off runtime:::::::::::::::::::");
-
+            this.props.onTurnOffRuntime();
             console.log(":::::::::::::::end turn off runtime ::::::::::::::")
         });
 
         socket.on("wait", () => {
             console.log(":::::::::::::::start wait:::::::::::::::::::");
-
+            this.props.onWaitfRuntime();
             console.log(":::::::::::::::end wait ::::::::::::::")
         });
 
@@ -129,14 +129,17 @@ const mapDispatchToProps = dispatch => {
         },
         // for the runtime socket io**********************************/
 
-        onTurnOnRuntime: (props) => {
+        onTurnOnRuntime: () => {
             console.log("on turn on runtime process");
+            dispatch(actionCreators.TurnOnMotor());
         },
-        onTurnOffRuntime: (props) => {
+        onTurnOffRuntime: () => {
             console.log("on turn off runtime process");
+            dispatch(actionCreators.TurnOffMotor());
         },
-        onWaitfRuntime: (props) => {
+        onWaitfRuntime: () => {
             console.log("on wait process");
+            dispatch(actionCreators.waitMotor());
         }
 
     };
