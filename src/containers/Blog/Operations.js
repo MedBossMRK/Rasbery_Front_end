@@ -12,12 +12,21 @@ import css from '../../css/Globale.css'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import Operation from '../../components/authenticate/Operation';
-
+import socketIOClient from "socket.io-client";
 
 class Operations extends Component {
-
+    endpoint = "http://localhost:4000/";
     componentDidMount() {
         console.log('init after rendering');
+
+        const socket = socketIOClient(this.endpoint);
+        socket.on("test", data => {
+            console.log(":::::::::::::::start test:::::::::::::::::::");
+            console.log(data);
+            console.log(":::::::::::::::end test ::::::::::::::")
+        });
+
+
         if (this.props.user.authority == "admin") {
             this.props.onGetMotorStatusAdmin(this.props);
         } else if (this.props.user.authority == "member") {
