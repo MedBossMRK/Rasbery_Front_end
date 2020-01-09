@@ -41,6 +41,7 @@ class Notification extends Component {
                                     < DetailedExpansionPanel
 
                                         username={notif.sendername}
+                                        message={notif.message}
                                         imageUrl={"http://localhost:4000/images/" + notif.sendername + ".png"}
                                     ></DetailedExpansionPanel>
                                 ))

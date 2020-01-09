@@ -66,18 +66,7 @@ export default function SimpleExpansionPanel1(props) {
                             spacing={0}
                         >
                             <Grid item xl={12} md={12} sm={12} xs={12}>
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={css.actioncards}
-                                    startIcon={<DeleteIcon />}
-                                    name={props.username}
-                                    onClick={() => {
-                                        props.deleteuser(props.username);
-                                    }}
-                                >
-                                    Delete
-                                 </Button>
+                                <Typography className={classes.heading}>{props.message}</Typography>
                             </Grid>
 
                         </Grid>
