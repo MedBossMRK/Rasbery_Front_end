@@ -13,4 +13,5 @@ export const getAllNotifications = "getAllNotifications";
 export const deleteUserFromRasbery = "deleteUserFromRasbery";
 export const TurnOnMotor = "TurnOnMotor";
 export const TurnOffMotor = "TurnOffMotor";
+export const waitMotor = "waitMotor";
 export const getMotorStatus = "getMotorStatus";

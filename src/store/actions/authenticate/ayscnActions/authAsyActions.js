@@ -95,6 +95,12 @@ export const TurnOffMotor = () => {
         type: actionTypes.TurnOffMotor
     }
 }
+export const waitMotor = () => {
+    return {
+        type: actionTypes.waitMotor,
+    }
+}
+
 export const getMotorStatus = (status) => {
     return {
         type: actionTypes.getMotorStatus,

@@ -26,6 +26,24 @@ class Operations extends Component {
             console.log(":::::::::::::::end test ::::::::::::::")
         });
 
+        socket.on("turnOn", () => {
+            console.log(":::::::::::::::start turn on runtime:::::::::::::::::::");
+
+            console.log(":::::::::::::::end trun on runtime ::::::::::::::")
+        });
+
+        socket.on("turnOff", () => {
+            console.log(":::::::::::::::start turn off runtime:::::::::::::::::::");
+
+            console.log(":::::::::::::::end turn off runtime ::::::::::::::")
+        });
+
+        socket.on("wait", () => {
+            console.log(":::::::::::::::start wait:::::::::::::::::::");
+
+            console.log(":::::::::::::::end wait ::::::::::::::")
+        });
+
 
         if (this.props.user.authority == "admin") {
             this.props.onGetMotorStatusAdmin(this.props);
@@ -66,6 +84,7 @@ class Operations extends Component {
                 <Operation
                     submit={this.Submit}
                     operation={this.props.user.motorStatus}
+                    keyWait={this.props.user.keyWait}
                 ></Operation>
             </div>
 
@@ -107,7 +126,19 @@ const mapDispatchToProps = dispatch => {
         onSubmitOffMember: (props) => {
             console.log("on submit off operation member");
             dispatch(actionCreators.TurnOffMotorOperationMember(props));
+        },
+        // for the runtime socket io**********************************/
+
+        onTurnOnRuntime: (props) => {
+            console.log("on turn on runtime process");
+        },
+        onTurnOffRuntime: (props) => {
+            console.log("on turn off runtime process");
+        },
+        onWaitfRuntime: (props) => {
+            console.log("on wait process");
         }
+
     };
 };
 

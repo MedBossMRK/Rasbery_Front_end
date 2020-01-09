@@ -11,8 +11,10 @@ export {
     deleteUserFromRasbery,
     TurnOnMotor,
     TurnOffMotor,
+    waitMotor,
     getMotorStatus,
     getAllNotifications,
+
 } from './authenticate/ayscnActions/authAsyActions'
 
 export {

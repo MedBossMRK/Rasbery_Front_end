@@ -16,6 +16,7 @@ if (initialUserState == undefined || initialUserState == null) {
         authority: "",
         token: "",
         motorStatus: false,
+        keyWait: false,
         users: [],
         notifications: [],
 
@@ -48,7 +49,10 @@ const reducer = (state = initialUserState, action) => {
                 isActive: false,
                 authority: "",
                 token: "",
+                motorStatus: false,
+                keyWait: false,
                 users: [],
+                notifications: [],
             });
         case actionTypes.sendInvitationRasbery:
             return updateObject(state, {});
@@ -61,9 +65,11 @@ const reducer = (state = initialUserState, action) => {
         case actionTypes.deleteUserFromRasbery:
             return updateObject(state, {});
         case actionTypes.TurnOnMotor:
-            return updateObject(state, { motorStatus: true });
+            return updateObject(state, { motorStatus: true, keyWait: false });
         case actionTypes.TurnOffMotor:
-            return updateObject(state, { motorStatus: false });
+            return updateObject(state, { motorStatus: false, keyWait: false });
+        case actionTypes.waitMotor:
+            return updateObject(state, { keyWait: true });
         case actionTypes.getMotorStatus:
             return updateObject(state, { motorStatus: action.status })
 

@@ -53,25 +53,29 @@ class Operation extends Component {
                     />
                     <CardActions >
                         {
-                            this.props.operation ?
-                                <Button className={css.actioncards}
-                                    variant="contained"
-                                    color="secondary"
-                                    href="#contained-buttons"
-                                    onClick={this.props.submit}
-                                >
-                                    turn off
-                                </Button>
+                            this.props.keyWait ?
+                                <h1>wait ....</h1>
                                 :
-                                <Button className={css.actioncards}
-                                    variant="contained"
-                                    color="secondary"
-                                    href="#contained-buttons"
-                                    onClick={this.props.submit}
-                                >
-                                    turn on
+                                this.props.operation ?
+                                    <Button className={css.actioncards}
+                                        variant="contained"
+                                        color="secondary"
+                                        href="#contained-buttons"
+                                        onClick={this.props.submit}
+                                    >
+                                        turn off
+                                </Button>
+                                    :
+                                    <Button className={css.actioncards}
+                                        variant="contained"
+                                        color="secondary"
+                                        href="#contained-buttons"
+                                        onClick={this.props.submit}
+                                    >
+                                        turn on
                                 </Button>
                         }
+
 
 
 
