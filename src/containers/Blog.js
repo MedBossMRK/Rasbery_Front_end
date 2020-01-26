@@ -35,6 +35,10 @@ class Blog extends Component {
                     <Route component={Nav_bar} />
                 </header>
                 <Switch>
+
+
+
+
                     {!this.props.user.isActive ?
                         <Route path="/SignIn" exact component={SingInHolder} />
                         : <Route path="/SignIn" exact render={() => <h1>you have to logout first</h1>}>
@@ -96,12 +100,7 @@ class Blog extends Component {
                     }
 
                     <Route path="/ValidateEmail/:token" exact component={ValidateEmail} />
-
-
-
-
                     <Route path="/ValidateInvitation/:token" exact component={validateInvitation} />
-
 
                     <Route component={Error404} />
 
