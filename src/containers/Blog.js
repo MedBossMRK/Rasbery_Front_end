@@ -22,6 +22,7 @@ import { createBrowserHistory as createHistory } from "history";
 import validateInvitation from './Blog/validateInvitation';
 import Notification from './Blog/Notification';
 import Operations from './Blog/Operations';
+import RequestPasswordForgetten from './Blog/RequestPasswordForgetten';
 
 
 
@@ -46,6 +47,11 @@ class Blog extends Component {
                     }
                     {!this.props.user.isActive ?
                         <Route path="/SignUp" exact component={SignUpHolder} />
+                        : <Route path="/SignUp" exact render={() => <h1>you have to logout first</h1>}>
+                        </Route>
+                    }
+                    {!this.props.user.isActive ?
+                        <Route path="/ForgetPassword" exact component={RequestPasswordForgetten} />
                         : <Route path="/SignUp" exact render={() => <h1>you have to logout first</h1>}>
                         </Route>
                     }
