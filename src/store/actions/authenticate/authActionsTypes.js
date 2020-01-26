@@ -15,3 +15,4 @@ export const TurnOnMotor = "TurnOnMotor";
 export const TurnOffMotor = "TurnOffMotor";
 export const waitMotor = "waitMotor";
 export const getMotorStatus = "getMotorStatus";
+export const requestForgetPassword = "requestForgetPassword";

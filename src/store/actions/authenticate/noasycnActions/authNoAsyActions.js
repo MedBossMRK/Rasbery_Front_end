@@ -541,3 +541,18 @@ export const getMotorStatusOperationMember = (props) => {
 };
 
 
+export const requestForgetPasswordProcess = (props, userLogin) => {
+    return (next) => {
+        axios.post(Url + '/RasberyOperation/RequestForgetPassword', userLogin)
+            .then((response) => {
+                console.log(response.data);
+                console.log("email has benn sended");
+                props.history.push('/signIn');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on sending email");
+            });
+    }
+};
+

@@ -33,7 +33,7 @@ class RequestPasswordForgetten extends Component {
         if (this.verification()) {
             console.log("----Submit valide-----");
             console.log(this.userLogin);
-            this.props.onSignIn(this.userLogin, this.props);
+            this.props.onSendEmail(this.userLogin, this.props);
         } else {
             console.log("----Submit not valide----");
         }
@@ -79,9 +79,9 @@ const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
 
-        onSignIn: (userLogin, props) => {
+        onSendEmail: (userLogin, props) => {
             console.log('request for a update a password via email');
-            //dispatch(actionCreators.signInFetch(userLogin, props));
+            dispatch(actionCreators.requestForgetPasswordProcess(props, userLogin));
         }
     };
 };

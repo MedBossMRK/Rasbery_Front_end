@@ -107,4 +107,11 @@ export const getMotorStatus = (status) => {
         status: status,
     }
 }
+/*
+export const requestForgetPassword = () => {
+    return {
+        type: actionTypes.requestForgetPassword,
 
+    }
+}
+*/
