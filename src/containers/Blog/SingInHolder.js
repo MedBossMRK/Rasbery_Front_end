@@ -49,10 +49,24 @@ class SignInHolder extends Component {
         return false;
     }
 
+    ForgetPassword = () => {
+        console.log("ForgetPassword");
+        this.props.history.push('/ForgetPassword');
+    }
+
+    SwitchToSignUp = () => {
+        console.log("Switch to SignUp");
+        this.props.history.push('/signUp');
+    }
     render() {
         return (
             <div className={css.Authenticate}>
-                <Sign_in inputChange={this.inputChange} submit={this.Submite}></Sign_in>
+                <Sign_in
+                    inputChange={this.inputChange}
+                    submit={this.Submite}
+                    forgetPassword={this.ForgetPassword}
+                    switch={this.SwitchToSignUp}
+                ></Sign_in>
             </div>
 
         );

@@ -57,19 +57,30 @@ class ForgetPassword extends Component {
                             alignItems="center"
                             spacing={0}
                         >
-                            <InputSimple title="Your email here" description="email" ></InputSimple>
+                            <InputSimple
+                                title="Your email here"
+                                description="email"
+                                name="email"
+                                Change={this.props.inputChange}
+                            ></InputSimple>
 
                         </Grid>
 
                     </CardContent>
                     <CardActions >
-                        <Button className={css.actioncards} onClick={this.props.action} variant="contained" color="primary" href="#contained-buttons">
+                        <Button className={css.actioncards}
+                            onClick={this.props.submit}
+                            variant="contained"
+                            color="primary"
+                        >
                             Send
                         </Button>
 
                     </CardActions>
                     <CardActions >
-                        <Link href="#" >
+                        <Link
+                            onClick={this.props.returnBack}
+                        >
                             Return back
                          </Link>
                     </CardActions>

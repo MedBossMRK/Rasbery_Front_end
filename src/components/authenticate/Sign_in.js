@@ -93,13 +93,20 @@ class Sign_in extends Component {
 
                     </CardActions>
                     <CardActions >
-                        <Button className={css.actioncards} variant="contained" color="primary" href="#contained-buttons">
+                        <Button className={css.actioncards}
+                            variant="contained"
+                            color="primary"
+
+                            onClick={this.props.switch}
+                        >
                             Switch to Sign up
                         </Button>
 
                     </CardActions>
                     <CardActions >
-                        <Link href="#" >
+                        <Link
+                            onClick={this.props.forgetPassword}
+                        >
                             Forget password
                          </Link>
                     </CardActions>

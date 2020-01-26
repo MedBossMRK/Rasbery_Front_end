@@ -15,16 +15,14 @@ import * as actionCreators from '../../store/actions/index';
 
 class RequestPasswordForgetten extends Component {
     userLogin = {
-        username: "",
-        password: "",
+        email: "",
+
     };
 
 
     inputChange = (event) => {
-        if (event.target.name == "username") {
-            this.userLogin.username = event.target.value;
-        } else if (event.target.name == "password") {
-            this.userLogin.password = event.target.value;
+        if (event.target.name == "email") {
+            this.userLogin.email = event.target.value;
         }
         // console.log(this.userLogin);
     };
@@ -41,9 +39,13 @@ class RequestPasswordForgetten extends Component {
         }
 
     }
+    ReturnBack = () => {
+        console.log("return back");
+        this.props.history.push('/signIn');
+    }
 
     verification = () => {
-        if (this.userLogin.username != "" && this.userLogin.password != "") {
+        if (this.userLogin.email != "") {
             return true;
         }
         return false;
@@ -52,7 +54,11 @@ class RequestPasswordForgetten extends Component {
     render() {
         return (
             <div className={css.Authenticate}>
-                <Forget_Password inputChange={this.inputChange} submit={this.Submite}></Forget_Password>
+                <Forget_Password
+                    inputChange={this.inputChange}
+                    submit={this.Submite}
+                    returnBack={this.ReturnBack}
+                ></Forget_Password>
             </div>
 
         );
@@ -74,8 +80,8 @@ const mapDispatchToProps = dispatch => {
     return {
 
         onSignIn: (userLogin, props) => {
-            console.log('sign in');
-            dispatch(actionCreators.signInFetch(userLogin, props));
+            console.log('request for a update a password via email');
+            //dispatch(actionCreators.signInFetch(userLogin, props));
         }
     };
 };

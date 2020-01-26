@@ -63,11 +63,19 @@ class SignUpHolder extends Component {
         }
         return false;
     }
+    SwitchToSignIn = () => {
+        console.log("Switch to SignIn");
+        this.props.history.push('/signIn');
+    }
 
     render() {
         return (
             <div className={css.Authenticate} >
-                <Sign_up testEvent={this.inputChange} submit={this.Submite} ></Sign_up>
+                <Sign_up
+                    testEvent={this.inputChange}
+                    submit={this.Submite}
+                    switch={this.SwitchToSignIn}
+                ></Sign_up>
                 <Steppers step={0}></Steppers>
             </div>
 

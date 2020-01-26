@@ -52,7 +52,7 @@ class Blog extends Component {
                     }
                     {!this.props.user.isActive ?
                         <Route path="/ForgetPassword" exact component={RequestPasswordForgetten} />
-                        : <Route path="/SignUp" exact render={() => <h1>you have to logout first</h1>}>
+                        : <Route path="/ForgetPassword" exact render={() => <h1>you have to logout first</h1>}>
                         </Route>
                     }
                     {this.props.user.state == 1 ?
@@ -96,17 +96,26 @@ class Blog extends Component {
 
                     {this.props.user.isActive ?
                         <Route path="/Home" exact component={Home} /> :
-                        <Route render={() => <h1>you are not connected</h1>}>
+                        <Route path="/Home" exact render={() => <h1>you are not connected</h1>}>
                         </Route>
                     }
                     {this.props.user.isActive ?
                         <Route path="/" exact component={Home} /> :
-                        <Route render={() => <h1>you are not connected</h1>}>
+                        <Route path="/" exact render={() => <h1>you are not connected</h1>}>
+                        </Route>
+                    }
+                    {this.props.user.isActive ?
+                        <Route path="/ValidateEmail/:token" exact component={ValidateEmail} /> :
+                        <Route path="/ValidateEmail/:token" exact render={() => <h1>you are not connected</h1>}>
                         </Route>
                     }
 
-                    <Route path="/ValidateEmail/:token" exact component={ValidateEmail} />
-                    <Route path="/ValidateInvitation/:token" exact component={validateInvitation} />
+                    {this.props.user.isActive ?
+                        <Route path="/ValidateInvitation/:token" exact component={validateInvitation} /> :
+                        <Route path="/ValidateInvitation/:token" exact render={() => <h1>you are not connected</h1>}>
+                        </Route>
+                    }
+
 
                     <Route component={Error404} />
 
