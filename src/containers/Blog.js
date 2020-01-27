@@ -57,8 +57,8 @@ class Blog extends Component {
                         </Route>
                     }
                     {!this.props.user.isActive ?
-                        <Route path="/UpdateForgettenPassword/:token" exact component={UpdatePasswordForgetten} />
-                        : <Route path="/UpdateForgettenPassword/:token" exact render={() => <h1>you have to logout first</h1>}>
+                        <Route path="/ForgetPasswordUpdate/:token" exact component={UpdatePasswordForgetten} />
+                        : <Route path="/ForgetPasswordUpdate/:token" exact render={() => <h1>you have to logout first</h1>}>
                         </Route>
                     }
                     {this.props.user.state == 1 ?
