@@ -13,9 +13,10 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import Operation from '../../components/authenticate/Operation';
 import socketIOClient from "socket.io-client";
+import { Url } from '../../properties/properties';
 
 class Operations extends Component {
-    endpoint = "http://localhost:4000/";
+    endpoint = Url;
     componentDidMount() {
         console.log('init after rendering');
 
@@ -140,7 +141,13 @@ const mapDispatchToProps = dispatch => {
         onWaitfRuntime: () => {
             console.log("on wait process");
             dispatch(actionCreators.waitMotor());
-        }
+        },
+
+        // for getting authority of user
+
+        onGetAuthority: () => {
+            console.log("get authority");
+        },
 
     };
 };

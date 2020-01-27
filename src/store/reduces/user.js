@@ -72,6 +72,8 @@ const reducer = (state = initialUserState, action) => {
             return updateObject(state, { keyWait: true });
         case actionTypes.getMotorStatus:
             return updateObject(state, { motorStatus: action.status })
+        case actionTypes.forceUpdateAuthority:
+            return updateObject(state, { authority: action.authority })
 
     }
     return state;

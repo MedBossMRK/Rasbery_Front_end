@@ -15,6 +15,7 @@ export {
     getMotorStatus,
     getAllNotifications,
     requestForgetPassword,
+    forceUpdateAuthority,
 
 } from './authenticate/ayscnActions/authAsyActions'
 
@@ -40,5 +41,6 @@ export {
     getMotorStatusOperationMember,
     requestForgetPasswordProcess,
     requestUpdateForgetPasswordProcess,
+    getAuthorityForceUser,
 
 } from './authenticate/noasycnActions/authNoAsyActions'

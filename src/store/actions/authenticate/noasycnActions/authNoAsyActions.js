@@ -572,3 +572,32 @@ export const requestUpdateForgetPasswordProcess = (props, data) => {
     }
 };
 
+
+export const getAuthorityForceUser = (props) => {
+    return (next) => {
+        let config = {
+            headers: {
+                authorization: "Bearer: " + props.user.token,
+                Username: props.user.username
+            }
+        }
+
+        axios.get(Url + '/RasberyOperation/RasberyForceUpdateAuthority/', config
+
+        )
+            .then((response) => {
+                console.log("okkkkkkkkkk");
+                console.log(response.data);
+                console.log(response.data.authority);
+                next(actionCreators.forceUpdateAuthority(response.data.authority));
+
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on get user authority force ");
+            });
+
+    }
+
+};
+

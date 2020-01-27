@@ -24,11 +24,22 @@ import Notification from './Blog/Notification';
 import Operations from './Blog/Operations';
 import RequestPasswordForgetten from './Blog/RequestPasswordForgetten';
 import UpdatePasswordForgetten from './Blog/UpdatePasswordForgetten';
+import { Url } from '../properties/properties';
+import socketIOClient from "socket.io-client";
 
 
 
 class Blog extends Component {
     history = createHistory(this.props);
+    endpoint = Url;
+    componentDidMount() {
+        const socket = socketIOClient(this.endpoint);
+        socket.on("ForceUpdateStatus", data => {
+            console.log(":::::::::::::::start update status:::::::::::::::::::");
+            this.props.onUpdateStatus(this.props);
+            console.log(":::::::::::::::end update status: ::::::::::::::")
+        });
+    }
 
     render() {
         return (
@@ -37,10 +48,6 @@ class Blog extends Component {
                     <Route component={Nav_bar} />
                 </header>
                 <Switch>
-
-
-
-
                     {!this.props.user.isActive ?
                         <Route path="/SignIn" exact component={SingInHolder} />
                         : <Route path="/SignIn" exact render={() => <h1>you have to logout first</h1>}>
@@ -149,6 +156,10 @@ const mapDispatchToProps = dispatch => {
             console.log('action activited');
             dispatch(actionCreators.signInFetch());
         },
+        onUpdateStatus: (props) => {
+            console.log("update status exactly authority in the  local storage");
+            dispatch(actionCreators.getAuthorityForceUser(props));
+        }
     };
 };
 

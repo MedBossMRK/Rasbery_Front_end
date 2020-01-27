@@ -115,3 +115,10 @@ export const requestForgetPassword = () => {
     }
 }
 */
+
+export const forceUpdateAuthority = (authority) => {
+    return {
+        type: actionTypes.forceUpdateAuthority,
+        authority: authority,
+    }
+}
