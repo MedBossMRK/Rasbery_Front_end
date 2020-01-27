@@ -15,19 +15,24 @@ import UpdatePasswordForgettenTemplet from '../../components/UpdateElements/Upda
 
 
 class UpdatePasswordForgetten extends Component {
-    userLogin = {
-        username: "",
+    data = {
+        token: "",
         password: "",
+        cfpassword: "",
     };
 
+    componentDidMount() {
+        console.log(this.props.match.params.token);
+        this.data.token = this.props.match.params.token;
+    }
 
     inputChange = (event) => {
-        if (event.target.name == "username") {
-            this.userLogin.username = event.target.value;
-        } else if (event.target.name == "password") {
-            this.userLogin.password = event.target.value;
+        if (event.target.name == "password") {
+            this.data.password = event.target.value;
+        } else if (event.target.name == "cfpassword") {
+            this.data.cfpassword = event.target.value;
         }
-        // console.log(this.userLogin);
+        // console.log(this.data);
     };
 
 
@@ -35,8 +40,8 @@ class UpdatePasswordForgetten extends Component {
         console.log("submit the form");
         if (this.verification()) {
             console.log("----Submit valide-----");
-            console.log(this.userLogin);
-            this.props.onSignIn(this.userLogin, this.props);
+            console.log(this.data);
+            this.props.onSubmit(this.data, this.props);
         } else {
             console.log("----Submit not valide----");
         }
@@ -44,8 +49,13 @@ class UpdatePasswordForgetten extends Component {
     }
 
     verification = () => {
-        if (this.userLogin.username != "" && this.userLogin.password != "") {
-            return true;
+        if (this.data.token != "" &&
+            this.data.password != "" &&
+            this.data.cfpassword != "") {
+            if (this.data.password == this.data.cfpassword) {
+                return true;
+            }
+
         }
         return false;
     }
@@ -78,9 +88,9 @@ const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
 
-        onSignIn: (userLogin, props) => {
-            console.log('sign in');
-            dispatch(actionCreators.signInFetch(userLogin, props));
+        onSubmit: (userLogin, props) => {
+            console.log('update password ');
+            // dispatch(actionCreators.signInFetch(userLogin, props));
         }
     };
 };

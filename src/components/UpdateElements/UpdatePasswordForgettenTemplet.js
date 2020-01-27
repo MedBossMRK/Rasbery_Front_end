@@ -67,10 +67,10 @@ class UpdatePasswordForgettenTemplet extends Component {
                             spacing={0}
                         >
                             <InputPassword name="password" title="Password"
-                                Change={this.props.testEvent}
+                                Change={this.props.inputChange}
                             ></InputPassword>
                             <InputPassword name="cfpassword" title="Confirme your Password"
-                                Change={this.props.testEvent}
+                                Change={this.props.inputChange}
                             ></InputPassword>
 
                         </Grid>
