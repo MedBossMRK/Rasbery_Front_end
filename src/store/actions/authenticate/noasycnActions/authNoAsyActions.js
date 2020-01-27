@@ -556,3 +556,19 @@ export const requestForgetPasswordProcess = (props, userLogin) => {
     }
 };
 
+
+export const requestUpdateForgetPasswordProcess = (props, data) => {
+    return (next) => {
+        axios.post(Url + '/RasberyOperation/RequestUpdateForgetPassword' + data.token, data)
+            .then((response) => {
+                console.log(response.data);
+                console.log("update password succes");
+                props.history.push('/signIn');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error on update password");
+            });
+    }
+};
+

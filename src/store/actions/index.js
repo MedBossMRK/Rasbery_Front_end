@@ -39,5 +39,6 @@ export {
     getMotorStatusOperationAdmin,
     getMotorStatusOperationMember,
     requestForgetPasswordProcess,
+    requestUpdateForgetPasswordProcess,
 
 } from './authenticate/noasycnActions/authNoAsyActions'

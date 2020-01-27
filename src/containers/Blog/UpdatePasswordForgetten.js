@@ -88,9 +88,9 @@ const mapDispatchToProps = dispatch => {
     console.log('set up dispatch');
     return {
 
-        onSubmit: (userLogin, props) => {
+        onSubmit: (data, props) => {
             console.log('update password ');
-            // dispatch(actionCreators.signInFetch(userLogin, props));
+            dispatch(actionCreators.requestUpdateForgetPasswordProcess(props, data));
         }
     };
 };
