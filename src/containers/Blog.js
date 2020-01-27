@@ -23,6 +23,7 @@ import validateInvitation from './Blog/validateInvitation';
 import Notification from './Blog/Notification';
 import Operations from './Blog/Operations';
 import RequestPasswordForgetten from './Blog/RequestPasswordForgetten';
+import UpdatePasswordForgetten from './Blog/UpdatePasswordForgetten';
 
 
 
@@ -53,6 +54,11 @@ class Blog extends Component {
                     {!this.props.user.isActive ?
                         <Route path="/ForgetPassword" exact component={RequestPasswordForgetten} />
                         : <Route path="/ForgetPassword" exact render={() => <h1>you have to logout first</h1>}>
+                        </Route>
+                    }
+                    {!this.props.user.isActive ?
+                        <Route path="/UpdateForgettenPassword/:token" exact component={UpdatePasswordForgetten} />
+                        : <Route path="/UpdateForgettenPassword/:token" exact render={() => <h1>you have to logout first</h1>}>
                         </Route>
                     }
                     {this.props.user.state == 1 ?

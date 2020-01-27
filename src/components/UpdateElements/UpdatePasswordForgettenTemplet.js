@@ -34,7 +34,7 @@ function HomeIcon(props) {
 }
 
 
-class Sign_in extends Component {
+class UpdatePasswordForgettenTemplet extends Component {
 
 
     render() {
@@ -56,7 +56,7 @@ class Sign_in extends Component {
             >
                 <Card className="Card" >
                     <CardHeader
-                        title="Sign in"
+                        title="Update Password"
                     />
                     <CardContent>
                         <Grid
@@ -87,18 +87,6 @@ class Sign_in extends Component {
                         </Button>
 
                     </CardActions>
-                    <CardActions >
-                        <Button className={css.actioncards} variant="contained" color="primary" href="#contained-buttons">
-                            Switch to Sign up
-                        </Button>
-
-                    </CardActions>
-                    <CardActions >
-                        <Link href="#" >
-                            Forget password
-                         </Link>
-                    </CardActions>
-
 
                 </Card>
             </Grid >
@@ -108,4 +96,4 @@ class Sign_in extends Component {
     }
 }
 
-export default Sign_in;
+export default UpdatePasswordForgettenTemplet;

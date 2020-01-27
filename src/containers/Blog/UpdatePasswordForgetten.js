@@ -11,6 +11,7 @@ import css from '../../css/Globale.css'
 
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
+import UpdatePasswordForgettenTemplet from '../../components/UpdateElements/UpdatePasswordForgettenTemplet';
 
 
 class UpdatePasswordForgetten extends Component {
@@ -52,7 +53,11 @@ class UpdatePasswordForgetten extends Component {
     render() {
         return (
             <div className={css.Authenticate}>
-                <Sign_in inputChange={this.inputChange} submit={this.Submite}></Sign_in>
+                <UpdatePasswordForgettenTemplet
+                    inputChange={this.inputChange}
+                    submit={this.Submite}>
+
+                </UpdatePasswordForgettenTemplet>
             </div>
 
         );
