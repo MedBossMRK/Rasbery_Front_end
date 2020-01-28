@@ -37,7 +37,7 @@ class AllUsers extends Component {
                                     < DetailedExpansionPanel
                                         deleteuser={this.onDeleteUserSelect}
                                         username={username}
-                                        imageUrl={"http://localhost:4000/images/" + username + ".png"}
+                                        imageUrl={Url + "/images/" + username + ".png"}
                                     ></DetailedExpansionPanel>
                                 ))
                             }

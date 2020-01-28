@@ -13,6 +13,7 @@ import css from '../../css/Globale.css'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import DetailedExpansionPanel from '../../materials/ExpensionPanle/ExpensionPanel1';
+import { Url } from '../../properties/properties';
 
 
 class Notification extends Component {
@@ -42,7 +43,7 @@ class Notification extends Component {
 
                                         username={notif.sendername}
                                         message={notif.message}
-                                        imageUrl={"http://localhost:4000/images/" + notif.sendername + ".png"}
+                                        imageUrl={Url + "/images/" + notif.sendername + ".png"}
                                     ></DetailedExpansionPanel>
                                 ))
                             }
